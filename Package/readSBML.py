@@ -6,7 +6,7 @@ def create_sbml(filename):
     """ 
     reader=libsbml.SBMLReader()
     if reader==None:
-        raise ValueError('LibSBML package should be instal')
+        raise ValueError('LibSBML package should have been installed')
     doc=reader.readSBML(filename)
     if doc.getNumErrors()>0:
         raise ValueError(doc.printErrors())
