@@ -1,66 +1,62 @@
-import os.path
-from libsbml import *
-import matplotlib.pyplot as plt
-import networkx as nx
-import numpy as np
-
-class Metabo():
-    
-    def __init__(self, id, name, compartment):
-        self.id=id
-        self.name=name
-        self.compartment=compartment
-        
-    def properties(self):
-        return {'id': self.id, 'name' : self.name, 'compartiment' : self.compartment}
-    
-
-class Reaction():
-    
-    def __init__(self, id, name, reversible, reactifs, products):
-        self.id=id
-        self.name=name
-        self.reversible=reversible
-        self.__reactifs=reactifs
-        self.__products=products
-
-    def get_reactifs(self, stoichiometry=False):
-        if stoichiometry:
-            return self.__reactifs
-        else: 
-            return [reactif for reactif, stoich in self.__reactifs]
-        
-        
-    def get_products(self, stoichiometry = False):
-        if stoichieometry:
-            return self.__products
-        return [product for product, stoich in self.__products]
-    
-    
-    def properties(self):
-        return {'id': self.id, 'name' : self.name, 'reversible' : self.compartment,
-               'reactifs' : self.reactifs, 'products' : self.products}
-    
-    def equation(self):
-        text=str(self.name)+" : "
-        for reactif, stoich in self.reactifs:
-            text+=str(stoich) + "*" + reactif + " + "
-        text = text[:-2]+"=> "
-        for product, stoich in self.products:
-            text+= str(stoich) + "*" + product + " + "
-        return text[:-2]
-        
-        
+import SeedTaag.Class as C
+import libsbml 
 
 
-#metabo_1=get_species(model)[0]        
-#metabo_1.properties()
-#metabo_1.name
-#model = import_data(filename)
-#get_species(model)
-#get_reactions(model)[0].equation()
-#'Phosphofructokinase : 1*M_atp_c + 1*M_f6p_c => 1*M_adp_c + 1*M_fdp_c + 1*M_h_c '
+def create_sbml(filename):
+    """
+    built libSBML object from a SBML file
+    """
+    reader = libsbml.SBMLReader()
+    if reader == None:
+        raise ValueError('LibSBML package should have been installed')
+    doc = reader.readSBML(filename)
+    if doc.getNumErrors() > 0:
+        raise ValueError(doc.printErrors())
+    model = doc.getModel()
+    return model
 
+def extract_species(model):
+    """
+    extract information about species in model libSMBL object
+    """
+    Metabos={}
+    for specie in model.getListOfSpecies():
+        id_sp = specie.getId()
+        constant_sp = specie.getConstant()
+        bdrcdt_sp = specie.getBoundaryCondition()
+        onlyUnit_sp = specie.getHasOnlySubstanceUnits()
+        name_sp = specie.getName()
+        sboTerm_sp = specie.getSBOTermID()
+        comptment_sp = specie.getCompartment()
+        Metabos[id_sp]=C.Metabo(id_sp,name_sp,comptment_sp)
+    return Metabos
+
+
+
+def extract_reactions(model,Metabos):
+    """
+    extract information about reaction in model libSMBL object
+    """
+    Reactions={}
+    for reaction in model.getListOfReactions():
+        reaction_id = reaction.getId()
+        reaction_name_ = reaction.getName()
+        reaction_reversible = reaction.getReversible()
+        reactants=[]
+        for reactant in reaction.getListOfReactants():
+            if not reactant in Metabos:
+                raise ValueError(print("Error: sbml file not complet"))
+            else:
+                reactants.append(reactant)
+        products =[]
+        for product in reaction.getListOfProducts():
+            if not product in Metabos:
+                raise ValueError(print("Error: sbml file not complet"))
+            else:
+                products.append(product)
+        Reactions[reaction_id]=C.Reaction(reaction_id,reaction_name_,reaction_reversible,reactants,products)
+
+"""a voir si on garde
 def import_data(filename):
     doc = readSBML(filename)
     model=doc.getModel()
@@ -76,6 +72,5 @@ def get_reactions(model):
         ListOfReactifs=[(reactif.species, int(reactif.stoichiometry)) for reactif in reaction.getListOfReactants()]
         ListOfProducts=[(product.species, int(product.stoichiometry)) for product in reaction.getListOfProducts()] 
         ListOfReactions.append(Reaction(reaction.id, reaction.name, reaction.reversible, ListOfReactifs, ListOfProducts))
-    return ListOfReactions
-
-
+    return ListOfReaction
+"""
