@@ -1,5 +1,5 @@
 import SeedTaag.Class as C
-import libsbml 
+import libsbml
 
 
 def create_sbml(filename):
