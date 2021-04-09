@@ -17,4 +17,4 @@ def tarjan(Graph):
   return nx.strongly_connected_components(Graph)
 
 def all_tp(Graph):
-  return list(nx.algorithms.dag.all_topological_sorts(G1))
+  return list(nx.algorithms.dag.all_topological_sorts(Graph))
