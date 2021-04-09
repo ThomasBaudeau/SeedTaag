@@ -4,6 +4,7 @@ class Metabo():
         self.id = id
         self.name = name
         self.compartment = compartment
+        self.link={}
 
     def properties(self):
         return {'id': self.id, 'name': self.name, 'compartiment': self.compartment}
@@ -19,13 +20,13 @@ class Reaction():
         self.__products = products
 
     def get_reactifs(self, stoichiometry=False):
-        if stoichiometry:
+        if not stoichiometry:
             return self.__reactifs
         else:
             return [reactif for reactif, stoich in self.__reactifs]
 
     def get_products(self, stoichiometry=False):
-        if stoichiometry:
+        if not stoichiometry:
             return self.__products
         return [product for product, stoich in self.__products]
 
@@ -44,3 +45,12 @@ class Reaction():
         for product, stoich in self.products:
             text += str(stoich) + "*" + product + " + "
         return text[:-2]
+
+    def isinreaction(self,a,b):
+        if a in self.__reactifs and b in self.__products:
+            return True
+        elif a in self.__products and b in self.__reactifs:
+            return False
+        else:
+            return None
+

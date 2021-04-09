@@ -1,5 +1,5 @@
 import networkx as nx
-import SeedTaag.Class as C
+import Class as C
 
 def create_graphe():
     """
@@ -10,6 +10,7 @@ def create_graphe():
 
 
 def extract_species(Metabos, G):
+    G = nx.MultiDiGraph()
     """
     extract informations of the dictionnary and built graph node
     """
@@ -18,17 +19,20 @@ def extract_species(Metabos, G):
     return G
 
 
-def extract_reactions(Reactions, G):
+def extract_reactions(Reactions, G,Mclass=True):
     """
     extract information about reaction in model libSMBL object
     """
     for key in Reactions:
-        reactants=Reactions[key].get_reactifs()
-        products = Reactions[key].get_products()
-        reversible = Reactions[key].getReversible()
-        for reactant in reactants:
-            for product in products:
-                G.add_edge(reactant, product, id=key)
-                if (reversible):
-                   G.add_edge(product, reactant, id=key)
+        if Mclass:
+            reactants=Reactions[key].get_reactifs()
+            products = Reactions[key].get_products()
+            reversible = Reactions[key].getReversible()
+            for reactant in reactants:
+                for product in products:
+                    G.add_edge(reactant, product, id=key)
+                    if (reversible):
+                        G.add_edge(product, reactant, id=key)
+        else:
+            G.add_edge(Reactions[key]['r'], Reactions[key]['p'], id=key)
     return G

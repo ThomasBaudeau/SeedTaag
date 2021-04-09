@@ -11,3 +11,10 @@ def all_pairs_nodes_connectivity(Graph) :
 
 def degree(Graph) :
   return nx.degree(Graph)
+
+
+def tarjan(Graph):
+  return nx.strongly_connected_components(Graph)
+
+def all_tp(Graph):
+  return list(nx.algorithms.dag.all_topological_sorts(G1))

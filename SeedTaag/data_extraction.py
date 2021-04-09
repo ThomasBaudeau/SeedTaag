@@ -1,4 +1,4 @@
-import SeedTaag.Class as C
+import Class as C
 import libsbml
 
 
@@ -43,18 +43,21 @@ def extract_reactions(model,Metabos):
         reaction_name_ = reaction.getName()
         reaction_reversible = reaction.getReversible()
         reactants=[]
-        for reactant in reaction.getListOfReactants():
+        for specie_r in reaction.getListOfReactants():
+            reactant=specie_r.getSpecies()
             if not reactant in Metabos:
                 raise ValueError(print("Error: sbml file not complet"))
             else:
                 reactants.append(reactant)
         products =[]
-        for product in reaction.getListOfProducts():
+        for specie_p in reaction.getListOfProducts():
+            product=specie_p.getSpecies()
             if not product in Metabos:
                 raise ValueError(print("Error: sbml file not complet"))
             else:
                 products.append(product)
         Reactions[reaction_id]=C.Reaction(reaction_id,reaction_name_,reaction_reversible,reactants,products)
+    return Reactions
 
 """a voir si on garde
 def import_data(filename):
