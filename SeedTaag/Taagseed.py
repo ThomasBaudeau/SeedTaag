@@ -23,7 +23,7 @@ def scc_species(graph):
     """
     seed=[list(c)
         for c in sorted
-            (gt.tarjan(G))]
+            (gt.tarjan(graph))]
     seeds={}
     for i in range(len(seed)):
         seeds[i+1]={'groupe':seed[i],'taille':len(seed[i])}
