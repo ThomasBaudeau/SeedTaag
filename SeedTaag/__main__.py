@@ -1,5 +1,5 @@
-import topology_results as topology
-import data_storage as storage
+import SeedTaag.topology_results as topology
+import SeedTaag.data_storage as storage
 import argparse 
 ### GRAPH ###
 """
