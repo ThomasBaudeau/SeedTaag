@@ -3,8 +3,6 @@
 
 from setuptools import setup,find_packages
 
-import SeedTaag
-
 setup(
     name='SeedTaag',
 
