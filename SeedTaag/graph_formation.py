@@ -1,5 +1,5 @@
 import networkx as nx
-import Class as C
+import SeedTaag.Class as C
 
 def create_graphe():
     """

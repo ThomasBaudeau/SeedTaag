@@ -1,6 +1,5 @@
-import graph_topology as gt
-import data_storage as ds
-
+import SeedTaag.graph_topology as gt
+import SeedTaag.data_storage as ds
 
 def find_seed(DAG,specie):
     """

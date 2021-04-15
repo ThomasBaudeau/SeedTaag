@@ -1,6 +1,6 @@
-import data_extraction as de
-import Class as C
-import graph_formation as gf
+import SeedTaag.data_extraction as de
+import SeedTaag.Class as C
+import SeedTaag.graph_formation as gf
 import os
 
 def init_data(file):

@@ -1,5 +1,5 @@
-import graph_topology as topology 
-import Taagseed as Taagseed
+import SeedTaag.graph_topology as topology
+import SeedTaag.Taagseed as Taagseed
 import json
 
 ### DISPLAY ###

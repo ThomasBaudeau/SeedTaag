@@ -1,5 +1,5 @@
 import networkx as nx
-import Taagseed as tg
+import SeedTaag.Taagseed as tg
 
 def shortest_path(Graph) :
   return nx.shortest_path(Graph)
