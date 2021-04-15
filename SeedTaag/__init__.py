@@ -4,5 +4,3 @@ seed of a metabolic network with an sbml file.
 """
 
 __version__=0.9
-
-from Taagseed import find_seed
