@@ -15,12 +15,13 @@ def display_all(Graph, Reactions) :
     print("\n")
     display_seed(Graph, Reactions)
 
-def display_shortest_path(Graph) :
+def display_shortest_path(Graph,mode=None) :
     SP= topology.shortest_path(Graph)
-    for key in SP.keys() :
-        for key2 in SP[key].keys() :
-            print("The shortest path for ", key, " to ", key2, " is : ")
-            print(SP[key][key2])
+    if(mode==None or mode==True):
+        for key in SP.keys() :
+            for key2 in SP[key].keys() :
+                print("The shortest path for ", key, " to ", key2, " is : ")
+                print(SP[key][key2])
 
 def display_centrality(Graph) :
     C= topology.degree_centrality(Graph)
