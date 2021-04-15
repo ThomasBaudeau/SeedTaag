@@ -23,5 +23,5 @@ setup(
             'seedtaag = SeedTagg.__main__:main',
         ],
     },
-    install_requires=['networkx', 'libsbml']
+    install_requires=['networkx']
 )
