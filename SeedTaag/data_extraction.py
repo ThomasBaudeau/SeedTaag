@@ -59,21 +59,3 @@ def extract_reactions(model,Metabos):
         Reactions[reaction_id]=C.Reaction(reaction_id,reaction_name_,reaction_reversible,reactants,products)
     return Reactions
 
-"""a voir si on garde
-def import_data(filename):
-    doc = readSBML(filename)
-    model=doc.getModel()
-    return model
-  
-def get_species(model):
-    ListOfSpecies=[ Metabo(species.id, species.name, species.compartment) for species in  model.getListOfSpecies()]
-    return ListOfSpecies
-
-def get_reactions(model):
-    ListOfReactions=[]
-    for reaction in model.getListOfReactions():
-        ListOfReactifs=[(reactif.species, int(reactif.stoichiometry)) for reactif in reaction.getListOfReactants()]
-        ListOfProducts=[(product.species, int(product.stoichiometry)) for product in reaction.getListOfProducts()] 
-        ListOfReactions.append(Reaction(reaction.id, reaction.name, reaction.reversible, ListOfReactifs, ListOfProducts))
-    return ListOfReaction
-"""
