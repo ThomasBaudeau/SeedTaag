@@ -1,6 +1,7 @@
 import SeedTaag.graph_topology as topology
 import SeedTaag.Taagseed as Taagseed
 import json
+import pandas as pd
 
 ### DISPLAY ###
 
@@ -39,6 +40,10 @@ def display_degree(Graph) :
     for attribut in D :
         print("The degree of the metabolite ", attribut[0], " is :", attribut[1])
 
+def display_diameter(Graph) :
+    Dia = topology.diameter(Graph)
+    print("Diameter :" , Dia)
+
 def display_seed(Graph, Reactions) :
     S= topology.taagseed(Reactions, Graph)
     for key in S.keys() :
@@ -53,9 +58,10 @@ def save_all(Graph, Reactions) :
     Ce= topology.degree_centrality(Graph)
     D= topology.degree(Graph)
     S= topology.taagseed(Reactions, Graph)
+    Dia= topology.diameter(Graph)
     for attribut in D :
         De[attribut[0]] = attribut[1]
-    data= {"Shortest_path" : SP, "Centrality" : Ce, "Connectivity" : Co, "Degree" : De, "Seed" : S}
+    data= {"Diameter": Dia, "Shortest_path" : SP, "Centrality" : Ce, "Connectivity" : Co, "Degree" : De, "Seed" : S}
 
     with open("save_all.json", "w") as file :
         json.dump(data, file, indent= 4)
@@ -66,20 +72,42 @@ def save_shortest_path(Graph) :
     SP= topology.shortest_path(Graph)
     with open("shortest_path.json", "w") as file :
         json.dump(SP, file, indent= 4)
-    print("Sauvegarde effectuée")
+    print("Backup done")
 
 
 def save_centrality(Graph) :
     C= topology.degree_centrality(Graph)
-    with open("centrality.json", "w") as file :
-        json.dump(C, file, indent= 4)
+
+    # TSV :
+    col={"Metabolite" : [], "Centrality" : []}
+    for key in C.keys() :
+        col["Metabolite"].append(key)
+        col["Centrality"].append(C[key])
+    df = pd.DataFrame(col)
+    df.to_csv("centrality.tsv", sep="\t", index=False)
+
+    # JSON :
+    # with open("centrality.json", "w") as file :
+    #     json.dump(C, file, indent= 4)
     print("Backup done")
 
 
 def save_connectivity(Graph) :
     C= topology.all_pairs_node_connectivity(Graph)
-    with open("connectivity.json", "w") as file :
-        json.dump(C, file, indent= 4)
+
+    # TSV :
+    col={"un":[],"deux":[],"connectivity":[]}
+    for key in C.keys() :
+        for key2 in C[key].keys() :
+            col["un"].append(key)
+            col["deux"].append(key2)
+            col["connectivity"].append(C[key][key2])
+    df = pd.DataFrame(col)
+    df.to_csv("connectivity.tsv", sep="\t", index=False)
+
+    # JSON :
+    # with open("connectivity.json", "w") as file :
+    #     json.dump(C, file, indent= 4)
     print("Backup done")
 
 
@@ -88,8 +116,18 @@ def save_degree(Graph) :
     D= topology.degree(Graph)
     for attribut in D :
         De[attribut[0]] = attribut[1]
-    with open("degree.json", "w") as file :
-        json.dump(De, file, indent= 4)
+    
+    # TSV :
+    col={"Metabolite" : [], "Degree" : []}
+    for key in De.keys() :
+        col["Metabolite"].append(key)
+        col["Degree"].append(De[key])
+    df = pd.DataFrame(col)
+    df.to_csv("degree.tsv", sep="\t", index=False)
+
+    # JSON :
+    # with open("degree.json", "w") as file :
+    #     json.dump(De, file, indent= 4)
     print("Backup done")
 
 

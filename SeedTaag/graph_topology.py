@@ -13,6 +13,16 @@ def all_pairs_nodes_connectivity(Graph) :
 def degree(Graph) :
   return nx.degree(Graph)
 
+def diameter(Graph) :
+    SP = shortest_path(Graph)
+    dia= 0
+    sp= ""
+    for key in SP.keys() :
+        for key2 in SP[key].keys() :
+            if dia < len(SP[key][key2]) :
+                dia = len(SP[key][key2])-1
+    return dia 
+
 def tarjan(Graph):
   return nx.strongly_connected_components(Graph)
 
