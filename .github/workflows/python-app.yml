@@ -11,7 +11,7 @@ on:
       - 'requirements.txt'
   pull_request:
     branches: [ main ]
-     paths-ignore:
+    paths-ignore:
       - 'README.md'
       - 'requirements.txt'
 
