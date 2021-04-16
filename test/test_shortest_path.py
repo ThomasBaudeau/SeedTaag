@@ -27,5 +27,5 @@ def test_shortest_path():
   result= topology.shortest_path(G)
   assert result == EXPECTED_SHORTEST_PATH
 
-if __name__=="__main__" :
+if __name__ == "__main__" :
   test_shortest_path()

@@ -46,3 +46,4 @@ jobs:
         pip install pytest
         cd test
         pytest test_seed.py
+        pytest test_shortest_path.py
