@@ -6,6 +6,8 @@ import SeedTaag.Taagseed as Seed
 EXPECTED_RESULT_SEED={}
 EXPECTED_RESULT_SEED[1]={'seed':['A'],'proba':'1/1'}
 EXPECTED_RESULT_SEED[2] = {'seed': ['F','H','G'], 'proba': '1/3'}
+EXPECTED_SEED1 = sorted(EXPECTED_RESULT_SEED[1]['seed'])
+EXPECTED_SEED2 = sorted(EXPECTED_RESULT_SEED[2]['seed'])
 
 
 def test_seed():
@@ -14,7 +16,10 @@ def test_seed():
     DAG=Seed.dag_init(R, G)
     specie = Seed.scc_species(G)
     result = Seed.find_seed(DAG, specie)
-    assert EXPECTED_RESULT_SEED==result
+    assert result[2]['proba'] == EXPECTED_RESULT_SEED[2]['proba']
+    assert result[1]['proba'] == EXPECTED_RESULT_SEED[1]['proba']
+    assert sorted(result[1]['seed']) == EXPECTED_SEED1
+    assert sorted(result[2]['seed']) == EXPECTED_SEED2
 
 
 if __name__=="__main__":
