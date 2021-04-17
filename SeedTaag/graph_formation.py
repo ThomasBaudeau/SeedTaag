@@ -15,7 +15,8 @@ def extract_species(Metabos, G):
     extract informations of the dictionnary and built graph node
     """
     for key in Metabos:
-        G.add_node(key)
+        properties=key.properties()
+        G.add_node(key, id=properties['id'],name=properties['name'],compartiment=properties['compartment'])
     return G
 
 
