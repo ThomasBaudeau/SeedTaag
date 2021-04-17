@@ -1,11 +1,18 @@
-import networkx as nx
 import SeedTaag.Taagseed as tg
+import networkx as nx
+import igraph as ig
+from igraph import Graph
 
 def shortest_path(Graph) :
+  #G = Graph.from_networkx(G)
+  #return Graph.shortest_paths(G) #avec graphe de Igraph
   return nx.shortest_path(Graph)
 
 def degree_centrality(Graph) :
   return nx.degree_centrality(Graph)
+
+def betweenness_centrality(Graph) :
+    return nx.betweenness_centrality(Graph)
 
 def all_pairs_nodes_connectivity(Graph) :
   return nx.all_pairs_node_connectivity(Graph)
@@ -13,15 +20,13 @@ def all_pairs_nodes_connectivity(Graph) :
 def degree(Graph) :
   return nx.degree(Graph)
 
-def diameter(Graph) :
-    SP = shortest_path(Graph)
-    dia= 0
-    sp= ""
-    for key in SP.keys() :
-        for key2 in SP[key].keys() :
-            if dia < len(SP[key][key2]) :
-                dia = len(SP[key][key2])-1
-    return dia 
+def diameter(G) : # avec graphe Igraph
+    G = Graph.from_networkx(G)
+    return Graph.diameter(G)
+
+def eccentricity(G) : # avec graphe Igraph
+    G = Graph.from_networkx(G)
+    return Graph.eccentricity(G)
 
 def tarjan(Graph):
   return nx.strongly_connected_components(Graph)

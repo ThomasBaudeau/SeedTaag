@@ -58,4 +58,3 @@ def extract_reactions(model,Metabos):
                 products.append(product)
         Reactions[reaction_id]=C.Reaction(reaction_id,reaction_name_,reaction_reversible,reactants,products)
     return Reactions
-

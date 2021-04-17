@@ -13,7 +13,7 @@ EXPECTED_SEED2 = sorted(EXPECTED_RESULT_SEED[2]['seed'])
 def test_seed():
     S, R = storage.init_data('toy_metabolic.sbml.xml')
     G = storage.init_graph(S, R)
-    DAG=Seed.dag_init(R, G)
+    DAG = Seed.dag_init(R, G)
     specie = Seed.scc_species(G)
     result = Seed.find_seed(DAG, specie)
     assert result[2]['proba'] == EXPECTED_RESULT_SEED[2]['proba']
