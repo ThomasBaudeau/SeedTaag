@@ -35,14 +35,14 @@ Firefox
 *<h2>API </h2>*
 __Table of Contents__
 
- <strong><em>init_data (str -> tuple) </em></strong>.
+ <strong><em>init_data (str -> tuple) </em></strong> <br>
 à partir d'un nom de fichier. Sbml créé un modèle et renvoie les métabolites et les réactions 
 kind : global funciton 
 parameters : file de type str 
 description : nom de fichier .sbml
 return : couple composé des métabolites et des réactions 
 
- <strong><em>init_graph (métabos, Reaction, mode → objet ) t</em></strong>.
+ <strong><em>init_graph (métabos, Reaction, mode → objet ) t</em></strong>
 génère le graphe à partir d'une liste de métabolites et de réactions 
 kind : global function 
 return ; graph networkx 
@@ -51,7 +51,7 @@ Reaction de type objet
 description : liste des objets métabos
 mode : affichage du graphe avec réactions et métabolites 
 
-<strong><em>create_graphe ()  </em></strong>.
+<strong><em>create_graphe ()  </em></strong>
 	built multidigraph object
 
 <strong><em>extract_species ()  </em></strong>.
