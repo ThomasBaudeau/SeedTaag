@@ -11,11 +11,11 @@ Usage
 
 
 Authors
-Students of the Bioinformatics Master of the University of Bordeaux
-Thomas BAUDEAU – thomas.baudeau@etu.u-bordeaux.fr
-Asmae BELMAHI  –  asmae.belmahi@etu.u-bordeaux.fr
-Grégory BORDIER – gregory.bordier@etu.u-bordeaux.fr
-Agathe KOMAROFF – agathe.komaroff@etu.u-bordeaux.fr
+Students of the Bioinformatics Master of the University of Bordeaux \\
+Thomas BAUDEAU – thomas.baudeau@etu.u-bordeaux.fr \\
+Asmae BELMAHI  –  asmae.belmahi@etu.u-bordeaux.fr \\
+Grégory BORDIER – gregory.bordier@etu.u-bordeaux.fr \\
+Agathe KOMAROFF – agathe.komaroff@etu.u-bordeaux.fr \\
 
 
 Programs versions used 
