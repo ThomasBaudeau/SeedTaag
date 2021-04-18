@@ -2,7 +2,12 @@
 
 **import**
 
+
+
+
 **Node server installation  set up** 
+
+
 
 
 **Usage** 
@@ -21,10 +26,11 @@ Grégory BORDIER – gregory.bordier@etu.u-bordeaux.fr
 Agathe KOMAROFF – agathe.komaroff@etu.u-bordeaux.fr 
 
 
-Programs versions used 
+__Programs versions used__
 
 Google Chrome 
 Firefox 
+
 
 **API**   
 __Table of Contents__
