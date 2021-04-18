@@ -1,7 +1,6 @@
 # ReseauxMetabo
 
-<h2>Heading level 2</h2>
-** <h2>Install 2</h2> **
+*<h2>Install </h2>*
 
 repository import 
 
