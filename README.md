@@ -13,7 +13,7 @@
 **Usage** 
 
 
-**Authors**  
+*<h2>Authors </h2>* 
 
 Students of the Bioinformatics Master of the University of Bordeaux 
 
@@ -26,13 +26,13 @@ Grégory BORDIER – gregory.bordier@etu.u-bordeaux.fr
 Agathe KOMAROFF – agathe.komaroff@etu.u-bordeaux.fr 
 
 
-__Programs versions used__
+*<h2>Programs versions used </h2>*
 
 Google Chrome 
 Firefox 
 
 
-**API**   
+*<h2>API </h2>*
 __Table of Contents__
 
 init_data (str → tuple) 
