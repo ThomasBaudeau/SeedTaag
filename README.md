@@ -36,47 +36,47 @@ Firefox
 __Table of Contents__
 
  <strong><em>init_data (str -> tuple) </em></strong> <br>
-à partir d'un nom de fichier. Sbml créé un modèle et renvoie les métabolites et les réactions 
-kind : global funciton 
-parameters : file de type str 
-description : nom de fichier .sbml
-return : couple composé des métabolites et des réactions 
+à partir d'un nom de fichier Sbml créé un modèle et renvoie les métabolites et les réactions <br>
+kind : global funciton <br>
+parameters : file de type str <br>
+description : nom de fichier .sbml<br>
+return : couple composé des métabolites et des réactions <br>
 
- <strong><em>init_graph (métabos, Reaction, mode → objet ) t</em></strong>
-génère le graphe à partir d'une liste de métabolites et de réactions 
-kind : global function 
-return ; graph networkx 
-parameters : métabos de type objet
-Reaction de type objet
-description : liste des objets métabos
-mode : affichage du graphe avec réactions et métabolites 
+ <strong><em>init_graph (métabos, Reaction, mode → objet ) </em></strong> <br>
+génère le graphe à partir d'une liste de métabolites et de réactions  <br>
+kind : global function <br>
+return : graph networkx <br>
+parameters : métabos de type objet<br>
+Reaction de type objet<br>
+description : liste des objets métabos<br>
+mode : affichage du graphe avec réactions et métabolites <br>
 
-<strong><em>create_graphe ()  </em></strong>
-	built multidigraph object
+<strong><em>create_graphe ()  </em></strong> <br>
+built multidigraph object
 
-<strong><em>extract_species ()  </em></strong>.
-	extract informations of the dictionnary and built graph node 
+<strong><em>extract_species ()  </em></strong> <br>
+extract informations of the dictionnary and built graph node <br>
 
-extract_reactions () 
-	extract information about reaction in model libsBML object 
+ <strong><em> extract_reactions () </em></strong> <br>
+extract information about reaction in model libsBML object <br>
 
 
-shortest_path (Graph → liste) 
-	renvoie une liste contenant les chemins les + courts entre les nœuds entre les différents métabolismes possibles 
-Kind : fonction globale 
-return : list : contenant les chemins les + courts 
-parameters : Graph de type objet 
-description : Graph composé des réactions et des métabolites 
+ <strong><em> shortest_path (Graph → liste) </em></strong> <br>
+renvoie une liste contenant les chemins les + courts entre les nœuds entre les différents métabolismes possibles <br>
+Kind : fonction globale <br>
+return : list : contenant les chemins les + courts <br>
+parameters : Graph de type objet <br>
+description : Graph composé des réactions et des métabolites <br>
 
-degree_centrality () 
-	renvoie un dictionnay of nodes with a degree centrality as a value 
-c'est un degré de centralité normalisé sur le maximum de degré possible pour le graphe
+ <strong><em> degree_centrality () </em></strong> <br>
+renvoie un dictionnay of nodes with a degree centrality as a value <br>
+c'est un degré de centralité normalisé sur le maximum de degré possible pour le graphe <br>
 
-betweenness_centrality() 
-	renvoie un dictionnay of nodes with a betweenness centrality as a value 
+  <strong><em> betweenness_centrality() </em></strong> <br>
+renvoie un dictionnay of nodes with a betweenness centrality as a value <br>
 
-all_pairs_nodes_connectivity () 
-	renvoie dictionary with nodes connectivity between all pairs of nodes in G
+ <strong><em> all_pairs_nodes_connectivity () </em></strong>  <br>
+renvoie dictionary with nodes connectivity between all pairs of nodes in G <br>
 
 degree () 
 
