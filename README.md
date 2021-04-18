@@ -28,7 +28,7 @@ Agathe KOMAROFF – agathe.komaroff@etu.u-bordeaux.fr
 
 *<h2>Programs versions used </h2>*
 
-Google Chrome 
+Google Chrome <br>
 Firefox 
 
 
@@ -78,25 +78,25 @@ renvoie un dictionnay of nodes with a betweenness centrality as a value <br>
  <strong><em> all_pairs_nodes_connectivity () </em></strong>  <br>
 renvoie dictionary with nodes connectivity between all pairs of nodes in G <br>
 
-degree () 
+ <strong><em> degree () </em></strong>  <br> 
 
-diameter () 
+ <strong><em> diameter () </em></strong>  <br> 
 
-tarjan () 
+  <strong><em> tarjan () </em></strong>  <br>  
  	renvoie une liste des composants strictement convexes du graphe 
 
-all_tp () 
+ <strong><em> all_tp ()  </em></strong>  <br> 
 	renvoie tous les tris topologiques du graphe possibles 
 
-taagseed () 
+ <strong><em> taagseed ()  </em></strong>  <br> 
 
 
 
-display_all () 
+d <strong><em> display_all () </em></strong>  <br>  
 
-display_shortest_path () 
+ <strong><em>  display_shortest_path ()  </em></strong>  <br>
 
-display_centrality () 
+ <strong><em> display_centrality ()  </em></strong>  <br> 
 
 display_connectivity () 
 
