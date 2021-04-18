@@ -1,16 +1,14 @@
-# ReseauxMetabo
-
 *<h2>Install </h2>*
 
-repository import 
+** import **
 
-Node server installation  set up 
-
-
-Usage 
+**Node server installation  set up** 
 
 
-Authors
+**Usage** 
+
+
+**Authors**  
 Students of the Bioinformatics Master of the University of Bordeaux 
 Thomas BAUDEAU – thomas.baudeau@etu.u-bordeaux.fr   
 Asmae BELMAHI  –  asmae.belmahi@etu.u-bordeaux.fr 
@@ -23,7 +21,7 @@ Programs versions used
 Google Chrome 
 Firefox 
 
-**API**
+**API**   
 __Table of Contents__
 
 init_data (str → tuple) 
