@@ -5,17 +5,17 @@ def create_graphe():
     """
     built multidigraph object
     """
-    G = nx.MultiDiGraph()
+    G = nx.DiGraph()
     return G
 
 
 def extract_species(Metabos, G):
-    G = nx.MultiDiGraph()
+    G = nx.DiGraph()
     """
     extract informations of the dictionnary and built graph node
     """
     for key in Metabos:
-        properties=key.properties()
+        properties=Metabos[key].properties()
         G.add_node(key, id=properties['id'],name=properties['name'],compartiment=properties['compartment'])
     return G
 

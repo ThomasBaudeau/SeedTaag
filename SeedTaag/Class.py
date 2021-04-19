@@ -7,7 +7,7 @@ class Metabo():
         self.link={}
 
     def properties(self):
-        return {'id': self.id, 'name': self.name, 'compartiment': self.compartment}
+        return {'id': self.id, 'name': self.name, 'compartment': self.compartment}
 
 
 class Reaction():
