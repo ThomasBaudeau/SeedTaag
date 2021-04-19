@@ -22,7 +22,7 @@ def extract_species(Metabos, G,Mclass=True):
     else:
         for key in Metabos:
             G.add_node(key)
-
+        return G
 
 def extract_reactions(Reactions, G,Mclass=True):
     """
