@@ -19,6 +19,6 @@ def init_graph(Metabos, Reactions,mode=True):
         G = gf.extract_species(Metabos, gf.create_graphe)
         G = gf.extract_reactions(Reactions,G)
     else:
-        G = gf.extract_species(Metabos, gf.create_graphe)
+        G = gf.extract_species(Metabos, gf.create_graphe,False)
         G = gf.extract_reactions(Reactions, G,False)
     return G

@@ -9,15 +9,19 @@ def create_graphe():
     return G
 
 
-def extract_species(Metabos, G):
+def extract_species(Metabos, G,Mclass=True):
     G = nx.DiGraph()
     """
     extract informations of the dictionnary and built graph node
     """
-    for key in Metabos:
-        properties=Metabos[key].properties()
-        G.add_node(key, id=properties['id'],name=properties['name'],compartiment=properties['compartment'])
-    return G
+    if Mclass:
+        for key in Metabos:
+            properties=Metabos[key].properties()
+            G.add_node(key, id=properties['id'],name=properties['name'],compartiment=properties['compartment'])
+        return G
+    else:
+        for key in Metabos:
+            G.add_node(key)
 
 
 def extract_reactions(Reactions, G,Mclass=True):
