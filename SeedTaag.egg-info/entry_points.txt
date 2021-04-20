@@ -1,3 +1,0 @@
-[console_scripts]
-seedtaag = SeedTagg.__main__:main
-
