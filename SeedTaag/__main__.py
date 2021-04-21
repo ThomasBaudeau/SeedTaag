@@ -1,5 +1,6 @@
 import SeedTaag.topology_results as topology
 import SeedTaag.data_storage as storage
+import SeedTaag.visualise as v
 import argparse 
 ### GRAPH ###
 """
@@ -32,6 +33,10 @@ def main():
     required=True,
     help='name of the sbml file to read',
     )
+    parser.add_argument('-d',
+    '--display',
+    required=False,
+    help='display graph on page web at :http://127.0.0.1:8050/')
     exgroup = parser.add_mutually_exclusive_group(required=True)
     exgroup.add_argument('--all',
     action='store_true',
@@ -54,13 +59,15 @@ def main():
     exgroup.add_argument('--save',
     action='store',
     nargs='+',
-    choices=['sp', 'c', 'cn', 'd', 's'],
+    choices=['sp', 'dc', 'cn', 'd', 's','dm','bc'],
     help='save selected topology result:\n\
         sp=shortest path;\
-        c=centrality;\
+        dc=degree centrality;\
         cn=connectivity;\
         d=degree;\
-        s=seed')
+        s=seed;\
+        dm=diameter;\
+        bc=betweeness centrality')
 
     args=parser.parse_args()
     S, R = storage.init_data(args.input)
@@ -77,7 +84,7 @@ def main():
             if 'sp' in rep:
                 topology.display_shortest_path(G)
                 print("\n")
-            if 'c' in rep:
+            if 'dc' in rep:
                 topology.display_centrality(G)
                 print("\n")
             if 'cn' in rep:
@@ -89,12 +96,13 @@ def main():
             if 's' in rep:
                 topology.display_seed(G,R)
                 print("\n")
-            if '-f' in rep:
-                pass
-            if '-g' in rep:
-                pass
-            if '-h' in rep:
-                pass
+            if 'dm' in rep:
+                topology.display_diameter(G)
+                print("\n")
+            if 'bc' in rep:
+                topology.display_degree_centrality(G)
+                print("\n")
+         
     if (args.save):
         rep = list(set(args.save))
         if len(rep) > 6:
@@ -115,12 +123,14 @@ def main():
             if 's' in rep:
                 topology.save_seed(G, R)
                 print("\n")
-            if '-f' in rep:
-                pass
-            if '-g' in rep:
-                pass
-            if '-h' in rep:
-                pass
+            if 'dm' in rep:
+                topology.save_diameter(G)
+                print("\n")
+            if 'bc' in rep:
+                topology.save_degree_centrality(G)
+                print("\n")
+    if (args.display):
+        v.visualise(S,R,G)
 
 
 if __name__ == "__main__":

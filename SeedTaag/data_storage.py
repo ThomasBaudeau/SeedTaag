@@ -1,5 +1,4 @@
 import SeedTaag.data_extraction as de
-import SeedTaag.Class as C
 import SeedTaag.graph_formation as gf
 import os
 
