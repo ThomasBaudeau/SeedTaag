@@ -23,5 +23,6 @@ setup(
             'seedtaag = SeedTagg.__main__:main',
         ],
     },
-    install_requires=['networkx','python-libsbml','pandas']
+    install_requires=['networkx', 'python-libsbml',
+                      'pandas', 'dash-cytoscape', 'dash', 'python-igraph']
 )
