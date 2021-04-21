@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output, State
 import plotly.express as px
 import requests
 import SeedTaag.Class as C
-import SeeedTaag.Taagseed as tag
+import SeedTaag.Taagseed as tag
 
 
 
