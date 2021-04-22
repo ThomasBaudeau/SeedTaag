@@ -3,7 +3,7 @@ import SeedTaag.Class as C
 
 def create_graphe():
     """
-    built multidigraph object
+    built digraph object
     """
     G = nx.DiGraph()
     return G
