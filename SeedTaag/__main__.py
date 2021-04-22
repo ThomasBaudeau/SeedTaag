@@ -36,6 +36,7 @@ def main():
     parser.add_argument('-d',
     '--display',
     required=False,
+    action='store_true',
     help='display graph on page web at :http://127.0.0.1:8050/')
     exgroup = parser.add_mutually_exclusive_group(required=True)
     exgroup.add_argument('--all',
