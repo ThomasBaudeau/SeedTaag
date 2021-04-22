@@ -26,50 +26,38 @@ metabolic network topologie and seed detector
 
 def main():
     parser = argparse.ArgumentParser('staag',
-    description='for specific help on each subcommand use:'
-    )
+                                     description='for specific help on each subcommand use:',
+                                     formatter_class=argparse.RawTextHelpFormatter
+                                     )
     parser.add_argument('-i',
-    '--input',
-    required=True,
-    help='name of the sbml file to read',
-    )
+                        '--input',
+                        required=True,
+                        help='name of the sbml file to read\n ',
+                        )
     parser.add_argument('-d',
-    '--display',
-    required=False,
-    action='store_true',
-    help='display graph on page web at :http://127.0.0.1:8050/')
+                        '--display',
+                        required=False,
+                        action='store_true',
+                        help='display graph on page web at :http://127.0.0.1:8050/\n ')
     exgroup = parser.add_mutually_exclusive_group(required=True)
     exgroup.add_argument('--all',
-    action='store_true',
-    help='displaying all the topologie result')
+                         action='store_true',
+                         help='displaying all the topologie result\n ')
 
     exgroup.add_argument('--select',
-    action='store',
-    nargs='+',
-    choices=['sp','c','cn','d','s','-f','-g'],
-    help='display selected topology result:\n\
-        sp=shortest path;\
-        c=centrality;\
-        cn=connectivity;\
-        d=degree;\
-        s=seed')
+                         action='store',
+                         nargs='+',
+                         choices=['sp', 'c', 'cn', 'd', 's', '-f', '-g'],
+                         help='save selected topology result:\n     sp=shortest path;\n     dc=degree centrality;\n     cn=connectivity;\n     d=degree;\n     s=seed;\n     dm=diameter;\n     bc=betweeness centrality\n ')
 
     exgroup.add_argument('--save_all',
-    action='store_true',
-    help='save all display result')
+                         action='store_true',
+                         help='save all display results\n ')
     exgroup.add_argument('--save',
-    action='store',
-    nargs='+',
-    choices=['sp', 'dc', 'cn', 'd', 's','dm','bc'],
-    help='save selected topology result:\n\
-        sp=shortest path;\
-        dc=degree centrality;\
-        cn=connectivity;\
-        d=degree;\
-        s=seed;\
-        dm=diameter;\
-        bc=betweeness centrality')
-
+                         action='store',
+                         nargs='+',
+                         choices=['sp', 'dc', 'cn', 'd', 's', 'dm', 'bc'],
+                         help='save selected topology result:\n     sp=shortest path;\n     dc=degree centrality;\n     cn=connectivity;\n     d=degree;\n     s=seed;\n     dm=diameter;\n     bc=betweeness centrality\n ')
     args=parser.parse_args()
     S, R = storage.init_data(args.input)
     G = storage.init_graph(S, R)
