@@ -1,4 +1,4 @@
-import Class as C
+import SeedTaag.Class as C
 import libsbml
 
 
