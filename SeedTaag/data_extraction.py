@@ -27,3 +27,23 @@ def extract_reactions(model, Metabos):
         ListOfProducts=[(Metabos[product.species], int(product.stoichiometry)) for product in reaction.getListOfProducts()] 
         DictOfReactions[reaction.id] = C.Reaction(reaction.id, reaction.name, reaction.reversible, ListOfReactifs, ListOfProducts)
     return DictOfReactions
+
+def get_all_reversible(Reactions, name=False):
+  all_reversible=[]
+  for reaction in Reactions.values():
+    if reaction.reversible:
+      if name :
+        all_reversible.append(reaction.name)
+      else :
+        all_reversible.append(reaction)
+  return all_reversible
+
+def get_all_transport(Reactions, name=False):
+  all_transport=[]
+  for reaction in Reactions.values():
+    if reaction.transport:
+      if name :
+        all_transport.append(reaction.name)
+      else :
+        all_transport.append(reaction)
+  return all_transport
