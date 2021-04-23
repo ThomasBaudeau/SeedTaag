@@ -46,11 +46,9 @@ class Reaction():
             text += str(stoich) + "*" + product.id + " + "
         return text[:-2]
 
-    def get_enzymes_names(self):
-      return {'reactifs' : [reactif.name for reactif in self.get_reactifs()],
-              'products' : [product.name for product in self.get_products()]
-      }
-
+    def get_enzyme_name(self):
+      return self.name
+      
     def isinreaction(self,a,b):
         if a in self.__reactifs and b in self.__products:
             return True
