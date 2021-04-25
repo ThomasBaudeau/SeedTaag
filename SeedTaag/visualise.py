@@ -135,6 +135,5 @@ def visualise(Metabo, react, graph):
         n_clicks = 2 if n_clicks is None else n_clicks
         return (elements1 if n_clicks % 2 == 0 else elements2)
 
-    app.run_server(dev_tools_hot_reload=False)
-    input("exit")
-    return
+    app.run_server()
+
