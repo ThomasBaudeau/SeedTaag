@@ -67,3 +67,13 @@ class Reaction():
             return False
         else:
             return None
+
+    def isinreaction2(self,a,b):
+        reactifs = self.get_reactifs()
+        products = self.get_products()
+        if a in reactifs and b in products:
+            return True
+        elif a in products and b in reactifs:
+            return False
+        else:
+            return None

@@ -8,13 +8,14 @@ EXPECTED_RESULT_SEED[1]={'seed':['A'],'proba':'1/1'}
 EXPECTED_RESULT_SEED[2] = {'seed': ['F','H','G'], 'proba': '1/3'}
 EXPECTED_SEED1 = sorted(EXPECTED_RESULT_SEED[1]['seed'])
 EXPECTED_SEED2 = sorted(EXPECTED_RESULT_SEED[2]['seed'])
-
+EXPECTED_RESULT=sorted(EXPECTED_RESULT_SEED)
 
 def test_seed():
     S, R = storage.init_data('toy_metabolic.sbml.xml')
     G = storage.init_graph(S, R)
     DAG,scc = Seed.dag_init(S,R, G)
     result = Seed.find_seed(DAG, scc)
+    assert sorted(result)==EXPECTED_RESULT
     assert result[2]['proba'] == EXPECTED_RESULT_SEED[2]['proba']
     assert result[1]['proba'] == EXPECTED_RESULT_SEED[1]['proba']
     assert sorted(result[1]['seed']) == EXPECTED_SEED1

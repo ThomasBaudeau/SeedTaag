@@ -13,7 +13,7 @@ def find_seed(dag,specie):
         if len(theset) == 0:
             count += 1
             seed[count] = {'seed': specie[node]['groupe'],
-                           'proba': '1/'+str(len(specie[node]['groupe']))}
+                           'proba': '1/'+str(specie[node]['lenght'])}
     return seed
 
 def find_dag_node(graph):

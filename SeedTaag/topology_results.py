@@ -132,7 +132,7 @@ def save_all(Graph, Reactions, Metabo):
     Bc= topology.betweenness_centrality(Graph)
     for attribut in D :
         De[attribut[0]] = attribut[1]
-    data= {"Diameter": Dia, "Shortest_path" : SP, "Degree Centrality" : Ce, "Betweenness centrality" : Bc, "Connectivity" : Co, "Degree" : De, "Diameter": Dia, "Eccentricity": Ecc, "Seed" : S}
+    data= {"Shortest_path" : SP, "Degree Centrality" : Ce, "Betweenness centrality" : Bc, "Connectivity" : Co, "Degree" : De, "Diameter": Dia, "Eccentricity": Ecc, "Seed" : S}
 
     with open("topology_results.json", "w") as file :
         json.dump(data, file, indent= 4)
