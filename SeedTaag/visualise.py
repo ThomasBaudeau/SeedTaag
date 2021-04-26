@@ -10,46 +10,66 @@ import SeedTaag.Taagseed as tag
 
 
 
-def defelements(M, R):
+def defelements(Metabos, Reactions):
     elements = []
-    for key in M:
-        elements.append({'data': {'id': key, 'labelid': key}})
-    for key in R:
-        reactants = R[key].get_reactifs()
-        products = R[key].get_products()
-        reversible = R[key].getReversible()
-        for reactant in reactants:
-            for product in products:
-                elements.append(
-                    {'data': {'source': reactant, 'target': product}})
-                if (reversible):
-                    elements.append(
-                        {'data': {'source': product, 'target': reactant}})
+    for key in Metabos:
+        properties = Metabos[key].properties()
+        elements.append({'data': {'id': key, 'labelid': properties['id'],
+        'name':properties['name'],
+        'compartiment':properties['compartment'],'boundaryConditions':properties['boundaryConditions'],
+        'hasOnlySubtanceUnit':properties['hasOnlySubtanceUnit'],'constant':['constant']}})
+    for key in Reactions:
+        properties = Reactions[key].properties()
+        for reactant in properties['reactifs']:
+            for product in properties['products']:
+                elements.append({'data': {'source': product.get_id(),
+                                          'target': reactant.get_id(), 'labelid': key, 'name': properties['name'],
+                                          'enzymes': properties['enzymes']}})
+                if (properties['reversible']):
+                    elements.append({'data': {'source': product.get_id(),
+                    'target': reactant.get_id(),'labelid':key,'name':properties['name'],
+                    'enzymes':properties['enzymes']}})
     return elements
 
 
-def element2(M, R, S):
+def defcsc(Metabos, Reactions, S):
     elements = []
     count = 0
-    for ab in S:
+    for scc in S:
         count += 1
-        lelabel = "composant_strictement_connexe "+str(count)
-        elements.append({'data': {'id': ab, 'labelid': lelabel}})
-        for key in S[ab]['groupe']:
-            elements.append(
-                {'data': {'id': key+'a', 'labelid': key, 'parent': ab}})
-    for key in R:
-        reactants = R[key].get_reactifs()
-        products = R[key].get_products()
-        reversible = R[key].getReversible()
-        for reactant in reactants:
-            for product in products:
-                elements.append(
-                    {'data': {'source': reactant+'a', 'target': product+'a'}})
-                if (reversible):
-                    elements.append(
-                        {'data': {'source': product+'a', 'target': reactant+'a'}})
+        lelabel = "strongly connected components "+str(count)
+        elements.append({'data': {'id': scc, 'labelid': lelabel}})
+        for key in S[scc]['groupe']:
+            properties = Metabos[key].properties()
+            elements.append({'data': {'id': key+'_', 'labelid': properties['id'],
+            'name': properties['name'],
+            'compartiment': properties['compartment'], 'boundaryConditions': properties['boundaryConditions'],
+            'hasOnlySubtanceUnit': properties['hasOnlySubtanceUnit'], 'constant': ['constant']}})
+    for key in Reactions:
+            properties = Reactions[key].properties()
+            for reactant in properties['reactifs']:
+                for product in properties['products']:
+                    elements.append({'data': {'source': product.get_id()+'_',
+                    'target': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
+                    'enzymes': properties['enzymes']}})
+                    if (properties['reversible']):
+                        elements.append({'data': {'source': product.get_id()+'_',
+                        'target': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
+                        'enzymes': properties['enzymes']}})
     return elements
+
+def defdag(node, edge):
+    elements = []
+    count = 0
+    for key in node:
+        count += 1
+        lelabel = "strongly connected components "+str(count)
+        elements.append({'data': {'id': key, 'labelid': lelabel,
+        'group':node[key]['groupe'],'lenght':node[key]['lenght']}})
+    for key in edge:
+        elements.append(
+            {'data': {'source': edge[key]['r'], 'target': edge[key]['p'], 'labelid': key}})
+    return elements   
 
 
 def visualise(Metabo, react, graph):
@@ -87,15 +107,21 @@ def visualise(Metabo, react, graph):
             'zIndex': 999
         }}
 
-    CC = tag.scc_species(graph)
+    dag_node = tag.scc_species(graph)
+    dag_edge = tag.find_dag_edge(Metabo, react, dag_node)
     app = Dash()
     elements1 = defelements(Metabo, react)
-    elements2 = element2(Metabo, react, CC)
+    elements2 = defcsc(Metabo, react, dag_node)
+    elements3 = defdag(dag_node,dag_edge)
 
     app.layout = html.Div(style=styles['container'], children=[
-        html.Div([
-            html.Button("afficher CSC", id='toggle-button'),
-            html.Div(id='toggle-text')
+        dcc.Dropdown(
+            id='dropdown-update-elements',
+            value='grid',
+            clearable=False,
+            options=[
+                {'label': name.capitalize(), 'value': name}
+                for name in ['simple_graph', 'scc_graph', 'dag']
         ]),
         html.Div(className='cy-container', style=styles['cy-container'], children=[
             cyto.Cytoscape(
@@ -125,15 +151,16 @@ def visualise(Metabo, react, graph):
         ])
     ])
 
-    @app.callback(Output('toggle-text', 'children'), Input('toggle-button', 'n_clicks'))
-    def update_toggle_text(n_clicks):
-        n_clicks = 2 if n_clicks is None else n_clicks
-        return '\t' + 'CSC ' + ('Off' if n_clicks % 2 == 0 else 'On')
-
-    @app.callback(Output('cytoscape-responsive-layout', 'elements'), Input('toggle-button', 'n_clicks'))
-    def update_csc(n_clicks):
-        n_clicks = 2 if n_clicks is None else n_clicks
-        return (elements1 if n_clicks % 2 == 0 else elements2)
+    @app.callback(Output('cytoscape-update-layout', 'layout'),
+                  Input('dropdown-update-elements', 'value'))
+    def update_layout(value):
+        if value == 'simple_graph':
+            return elements1
+        if value == 'scc_graph':
+            return elements2
+        if value == 'dag':
+            return elements3
 
     app.run_server()
 
+   
