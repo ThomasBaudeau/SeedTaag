@@ -3,6 +3,17 @@ import SeedTaag.graph_formation as gf
 import os
 
 def init_data(file):
+    """[summary]
+
+    Args:
+        file ([type]): [description]
+
+    Raises:
+        ValueError: [description]
+
+    Returns:
+        [type]: [description]
+    """
     try:
         open(file)
     except Exception as e:
