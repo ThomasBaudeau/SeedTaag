@@ -27,7 +27,7 @@ def extract_reactions(model, Metabos,stoichiometry=False):
       try: 
         ListOfReactifs = [({'species': Metabos[reactif.species],'stochiometry':reactif.stoichiometry}) for reactif in reaction.getListOfReactants()]
         ListOfProducts = [({'species': Metabos[product.species], 'stochiometry':product.stoichiometry})for product in reaction.getListOfProducts()]
-        DictOfReactions[reaction.id] = C.Reaction(reaction.id, reaction.name, reaction.reversible, ListOfReactifs, ListOfProducts)
+        DictOfReactions[reaction.id] = C.Reaction(reaction.id, reaction.name, reaction.reversible, ListOfReactifs, ListOfProducts,None)
       except Exception as e:
         raise ValueError (print(e))
     return DictOfReactions
