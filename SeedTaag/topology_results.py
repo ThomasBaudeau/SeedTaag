@@ -12,6 +12,7 @@ def display_all(Graph, Reactions, Metabo):
     Args:
         Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph 
         Reactions ([type]): reactions of the metabolic network
+        Metabo (dict): dictionary of Reaction object 
     """
     display_shortest_path(Graph)
     print("\n")
@@ -106,6 +107,7 @@ def display_seed(Graph, Reactions,Metabo) :
     Args:
         Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph 
         Reactions ([type]): reactions of the metabolic network
+        Metabo (dict): dictionary of Reaction object 
     """
     S = topology.taagseed(Metabo,Reactions, Graph)
     for key in S.keys() :
@@ -120,6 +122,7 @@ def save_all(Graph, Reactions, Metabo):
     Args:
         Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph 
         Reactions ([type]): reactions of the metabolic network
+        Metabo (dict): dictionary of Reaction object 
     """
     De= {}
     SP= topology.shortest_path(Graph)
@@ -267,6 +270,7 @@ def save_seed(Graph, Reaction, Metabo):
     Args:
         Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph 
         Reactions ([type]): reactions of the metabolic network
+        Metabo (dict): dictionary of Reaction object 
     """
     S = topology.taagseed(Metabo, Reaction, Graph)
     with open("seeds.json", "w") as file :

@@ -85,13 +85,40 @@ def eccentricity(G) : # avec graphe Igraph
   return Graph.eccentricity(G)
 
 def tarjan(Graph):
+  """find the strongly connected component of the graph with the tarjan algorithm
+
+  Args:
+      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+
+  Returns:
+      [set of node]: set of node who each one represent scc
+  """
   return nx.strongly_connected_components(Graph)
 
 def ancestors(Graph,node):
-    return nx.algorithms.dag.ancestors(Graph, node)
+  """find the ancestor of one node
+
+  Args:
+       Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+      node (dict): dictionary of nodes in the graph
+
+  Returns:
+      [set of node]: ancestor of the node
+  """
+  return nx.algorithms.dag.ancestors(Graph, node)
 
 
 def taagseed(Metabo,Reaction, Graph):
+  """find the seed in the graph
+
+  Args:
+      Metabo (dict): dictionary of metabo objects
+      Reaction (dict): dictionary of reaction objects
+      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+
+  Returns:
+      [dict]: dictionary of seeds 
+  """
   dag, scc_node = tg.dag_init(Metabo,Reaction, Graph)
   seed = tg.find_seed(dag, scc_node)
   return seed

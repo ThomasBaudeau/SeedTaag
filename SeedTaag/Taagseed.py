@@ -2,8 +2,14 @@ import SeedTaag.graph_topology as gt
 import SeedTaag.data_storage as ds
 
 def find_seed(dag,specie):
-    """
-    function for find seed element in a DAG 
+    """dind the seed of a dag
+
+    Args:
+        dag (networkx object): networkx graph must be a directed acyclic graph
+        specie (dict): dictionary of node contained in the graph
+
+    Returns:
+        dict: dictionary of seeds
     """
     seed = {}
     count = 0
@@ -16,8 +22,13 @@ def find_seed(dag,specie):
     return seed
 
 def find_dag_node(graph):
-    """
-    built dictionary of all the speciespecieC of graph
+    """create dictionary of node with strictly connected component informations
+
+    Args:
+        graph (networkx object): networkx graph must be directed
+
+    Returns:
+        [dict]: dictionary of node with strictly connected component informations
     """
     scc=[list(c)
         for c in sorted
@@ -29,8 +40,15 @@ def find_dag_node(graph):
 
 
 def find_dag_edge(Metabo, Reactions, scc_node):
-    """
-    built dictionary of links between all the specieCC
+    """built dictionary of the relation connecting two nodes
+
+    Args:
+        Metabo (dict): dictionary of Metabo object
+        Reactions (dict): dictionary of Reaction object
+        scc_node (dict): dictionary of node
+
+    Returns:
+        dict: dictionary of reaction built with the relations between two nodes
     """
     dag_edge={}
     keys = list(scc_node.keys())
@@ -55,6 +73,16 @@ def find_dag_edge(Metabo, Reactions, scc_node):
 
 
 def dag_init(Metabo,Reactions, Graph):
+    """create sbml graph and dict of their related nodes 
+
+    Args:
+        Metabo (dict): dictionary of Metabo object
+        Reactions (dict): dictionary of Reaction object
+        Graph (networkx object): networkx graph must be directed
+
+    Returns:
+        [networkx object,dict]:  graph built with networkx and a dictionary of node with strictly connected component informations
+    """
     scc_node = find_dag_node(Graph)
     scc_edge = find_dag_edge(Metabo,Reactions, scc_node)
     dag = ds.init_graph(scc_node, scc_edge,True)

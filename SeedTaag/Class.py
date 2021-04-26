@@ -62,6 +62,15 @@ class Reaction():
 
 
     def isinreaction(self,a,b):
+        """find the link between two metabolites
+
+        Args:
+            a (string): metabolite's id
+            b (string): metabolite's id
+
+        Returns:
+            Boolean: True if a is the source of the reaction False if its the opposite and None if one of the elements is not in the reaction
+        """
         reactifs = self.get_reactifs()
         products = self.get_products()
         if a in reactifs and b in products:

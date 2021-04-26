@@ -3,10 +3,15 @@ import SeedTaag.Class as C
 
 
 def extract_species(Metabos):
+    """built and fill networkx graph with metabolite
+
+    Args:
+        Metabos (dict): dictionary of Metabo object
+
+    Returns:
+        networkx objet: graph built with networkx
+    """                                                         
     G = nx.DiGraph()
-    """
-    extract informations of the dictionnary and built graph node
-    """
     for key in Metabos:
             properties=Metabos[key].properties()
             G.add_node(key, id=properties['id'],name=properties['name'],compartiment=properties['compartment'],
@@ -15,9 +20,15 @@ def extract_species(Metabos):
     return G
    
 def extract_reactions(Reactions, G):
-    """
-    extract information about reaction in model libSMBL object
-    """
+    """fill networkx graph with reaction
+
+    Args:
+        Reactions (dict): dictionary of reaction object
+        G (networkx object): networkx graph
+
+    Returns:
+        networkx object: graph built with networkx the reactions reflect the edges
+    """ 
     for key in Reactions:
         properties = Reactions[key].properties()
         for reactant in properties['reactifs']:
@@ -31,6 +42,15 @@ def extract_reactions(Reactions, G):
 
 
 def dag_init(node,edge):
+    """create networkx specific graph (directed acyclic graph)
+
+    Args:
+        node (dict): dictionary containing all the information about the nodes for build the graph
+        edge (dict): dictionary containing all the information about the edge for build the graph
+
+    Returns:
+       networkx object:networkx graph (dag)
+    """
     dag = nx.DiGraph()
     for key in node:
         dag.add_node(key, id='scc'+str(key), group=node[key]['groupe'],

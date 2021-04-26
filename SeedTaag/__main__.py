@@ -11,6 +11,12 @@ metabolic network topologie and seed detector
 
 
 def main():
+    """Main fonction for use SeedTaag package with -m SeedTaag
+
+    Raises:
+        ValueError: [Too many argument : incorrect utilisation of the command line]
+        ValueError: [Too many argument : incorrect utilisation of the command line]
+    """
     parser = argparse.ArgumentParser('staag',
                                      description='for specific help on each subcommand use:',
                                      formatter_class=argparse.RawTextHelpFormatter

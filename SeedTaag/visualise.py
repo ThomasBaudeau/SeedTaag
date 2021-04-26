@@ -10,6 +10,15 @@ import SeedTaag.Taagseed as tag
 
 
 def defelements(Metabos, Reactions):
+    """built a list of data from dictionary object of type Metabo and Reaction
+
+    Args:
+        Metabos (dict): dictionary of Metabo object
+        Reactions (dict): dictionary of Reaction object
+
+    Returns:
+        list: list of all the informations extracts from the object
+    """
     elements = []
     for key in Metabos:
         properties = Metabos[key].properties()
@@ -32,6 +41,16 @@ def defelements(Metabos, Reactions):
 
 
 def defcsc(Metabos, Reactions, S):
+    """built a list of data for create Dash graph with apparent strongly connected component
+
+    Args:
+        Metabos (dict): dictionary of Metabo object
+        Reactions (dict): dictionary of Reaction object
+        S (dict): dictionary of strongly connected component
+
+    Returns:
+        list: list of all the informations for built Dash graph with apparent strongly connected component
+    """
     elements = []
     count = 0
     for scc in S:
@@ -59,6 +78,15 @@ def defcsc(Metabos, Reactions, S):
 
 
 def defdag(node, edge):
+    """built a list of data for create Dash graph with strongly connected component as node
+
+    Args:
+        node (dict): dictionary of strongly connected component
+        edge ([type]): dictionary of strongly connected component link
+
+    Returns:
+        [list]: list of all the informations for built Dash graph with strongly connected component as nodes
+    """
     elements = []
     count = 0
     for key in node:
@@ -73,6 +101,13 @@ def defdag(node, edge):
 
 
 def visualise(Metabo, react, graph):
+    """start web serveur for visualise graph of a metabolite network
+
+    Args:
+        Metabos (dict): dictionary of Metabo object
+        Reactions (dict): dictionary of Reaction object
+        graph (networkx object): networkx graph
+    """
     default_stylesheet = [
         {
             'selector': 'node',
@@ -155,6 +190,14 @@ def visualise(Metabo, react, graph):
     @app.callback(Output('cytoscape-responsive', 'elements'),
                   Input('dropdown-update-elements', 'value'))
     def update_layout(value):
+        """uptdate the graph between three type of visualisation
+
+        Args:
+            value (str): name of the selected graph
+
+        Returns:
+            list: list of the graph representation
+        """
         print(value)
         if value == 'simple_graph' or value == 'grid':
             return elements1
