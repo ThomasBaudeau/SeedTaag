@@ -59,16 +59,9 @@ class Reaction():
 
     def add_enzyme(self,enzyme):
         self.enzymes.apppend(enzyme)
-      
-    def isinreaction(self,a,b):
-        if a in self.__reactifs and b in self.__products:
-            return True
-        elif a in self.__products and b in self.__reactifs:
-            return False
-        else:
-            return None
 
-    def isinreaction2(self,a,b):
+
+    def isinreaction(self,a,b):
         reactifs = self.get_reactifs()
         products = self.get_products()
         if a in reactifs and b in products:
