@@ -29,7 +29,7 @@ def extract_reactions(model, Metabos,stoichiometry=False):
         ListOfProducts = [({'species': Metabos[product.species], 'stochiometry':product.stoichiometry})for product in reaction.getListOfProducts()]
         DictOfReactions[reaction.id] = C.Reaction(reaction.id, reaction.name, reaction.reversible, ListOfReactifs, ListOfProducts)
       except Exception as e:
-        raise ValueError (print(e+"Error sbml file should  be corrupted"))
+        raise ValueError (print(e))
     return DictOfReactions
 
 
