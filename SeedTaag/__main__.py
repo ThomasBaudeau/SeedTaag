@@ -1,24 +1,10 @@
 import SeedTaag.topology_results as topology
 import SeedTaag.data_storage as storage
 import SeedTaag.visualise as v
-import argparse 
+import argparse
+
 ### GRAPH ###
-"""
-S, R= storage.init_data('1Seed4Loop3SeedLoop.sbml')
-G = storage.init_graph(S, R)
 
-
-
-### TOPOLOGY ###
-
-topology.display_all(G, R)
-
-### SAVE ###
-
-topology.save_all(G, R)
-
-###### WORK IN PROGRESS #######
-"""
 MESSAGE ="""
 metabolic network topologie and seed detector
 """
@@ -58,6 +44,7 @@ def main():
                          nargs='+',
                          choices=['sp', 'dc', 'cn', 'd', 's', 'dm', 'bc'],
                          help='save selected topology result:\n     sp=shortest path;\n     dc=degree centrality;\n     cn=connectivity;\n     d=degree;\n     s=seed;\n     dm=diameter;\n     bc=betweeness centrality\n ')
+                         
     args=parser.parse_args()
     S, R = storage.init_data(args.input)
     G = storage.init_graph(S, R)

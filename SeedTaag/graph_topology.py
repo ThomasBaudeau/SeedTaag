@@ -87,11 +87,10 @@ def eccentricity(G) : # avec graphe Igraph
 def tarjan(Graph):
   return nx.strongly_connected_components(Graph)
 
-def all_tp(Graph):
-  return list(nx.algorithms.dag.all_topological_sorts(Graph))
+def descendants(Graph,node):
+    return nx.algorithms.dag.descendants(Graph, node)
 
 def taagseed(Reaction, Graph) :
-  species= tg.scc_species(Graph)
-  dag = tg.dag_init(Reaction, Graph)
-  seed= tg.find_seed(dag, species)
+  dag, scc_node = tg.dag_init(Reaction, Graph)
+  seed = tg.find_seed(dag, scc_node)
   return seed

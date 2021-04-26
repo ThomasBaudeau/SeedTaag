@@ -1,63 +1,63 @@
 import SeedTaag.graph_topology as gt
 import SeedTaag.data_storage as ds
 
-def find_seed(DAG,specie):
+def find_seed(dag,specie):
     """
     function for find seed element in a DAG 
     """
-    seed={}
-    seeds=[]
-    count=0
-    tp=gt.all_tp(DAG)
-    for key in reversed(tp):
-        if not key[0] in seeds:
-            count+=1
-            seed[count] = {'seed': specie[key[0]]['groupe'], 'proba': '1/'+str(len(specie[key[0]]['groupe']))}
-            seeds.append(key[0])
+    seed = {}
+    count = 0
+    print(specie)
+    for node in dag.nodes:
+        theset = gt.descendants(dag, node)
+        if len(theset) != 0:
+            count += 1
+            seed[count] = {'seed': specie[node]['groupe'],
+                           'proba': '1/'+str(len(specie[node]['groupe']))}
     return seed
 
-def scc_species(graph):
+def find_dag_node(graph):
     """
     built dictionary of all the speciespecieC of graph
     """
-    seed=[list(c)
+    scc=[list(c)
         for c in sorted
             (gt.tarjan(graph))]
-    seeds={}
-    for i in range(len(seed)):
-        seeds[i+1]={'groupe':seed[i],'taille':len(seed[i])}
-    return seeds
+    node_dag={}
+    for i in range(len(scc)):
+        node_dag[i+1] = {'groupe': scc[i], 'lenght': len(scc[i])}
+    return node_dag
 
-def scc_link(Reactions,specie):
+def find_dag_edge(Reactions,scc_node):
     """
     built dictionary of links between all the specieCC
     """
-    seed_reaction={}
-    keys=list(specie.keys())
+    dag_edge={}
+    keys = list(scc_node.keys())
     count=0
     while len(keys)!=0:
         count+=1
         key=keys[0]
         keys.remove(key)
         for j in keys:
-            for node in specie[key]['groupe']:
-                for node2 in specie[j]['groupe']:
+            for node in scc_node[key]['groupe']:
+                for node2 in scc_node[j]['groupe']:
                     for reaction in Reactions:
                         rep=Reactions[reaction].isinreaction(node,node2)
                         if rep != None:
                             if rep:
-                                seed_reaction[count] = {'r': key, 'p': j}
+                                dag_edge[count] = {'r': key, 'p': j}
                                 count+=1
                             elif not rep:
-                                seed_reaction[count] = {'r': j, 'p': key}
+                                dag_edge[count] = {'r': j, 'p': key}
                                 count += 1
-    return seed_reaction
+    return dag_edge
 
 
 def dag_init(Reactions,Graph):
-    specie = scc_species(Graph)
-    link = scc_link(Reactions,specie)
-    dag = ds.init_graph(specie, link, mode=False)
-    return dag
+    scc_node = find_dag_node(Graph)
+    scc_edge = find_dag_edge(Reactions, scc_node)
+    dag = ds.init_graph(scc_node, scc_edge,True)
+    return dag,scc_node
 
 
