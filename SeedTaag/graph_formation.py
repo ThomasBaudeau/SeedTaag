@@ -34,7 +34,7 @@ def dag_init(node,edge):
     dag = nx.DiGraph()
     for key in node:
         dag.add_node(key, id='scc'+str(key), group=node[key]['groupe'],
-        lenght=node[key]['length'])
+        lenght=node[key]['lenght'])
     for key in edge:
         dag.add_edge(edge[key]['r'],edge[key]['p'], id=key)
     return dag
