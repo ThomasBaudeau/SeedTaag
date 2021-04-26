@@ -125,7 +125,7 @@ def visualise(Metabo, react, graph):
         ]),
         html.Div(className='cy-container', style=styles['cy-container'], children=[
             cyto.Cytoscape(
-                id='cytoscape-responsive-layout',
+                id='cytoscape-responsive',
                 elements=elements1,
                 stylesheet=default_stylesheet,
                 style=styles['cytoscape'],
@@ -151,7 +151,7 @@ def visualise(Metabo, react, graph):
         ])
     ])
 
-    @app.callback(Output('cytoscape-update-layout', 'layout'),
+    @app.callback(Output('cytoscape-responsive', 'elements'),
                   Input('dropdown-update-elements', 'value'))
     def update_layout(value):
         if value == 'simple_graph':
