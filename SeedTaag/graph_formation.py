@@ -25,7 +25,7 @@ def extract_reactions(Reactions, G):
                 G.add_edge(reactant.get_id(), product.get_id(), id=key,name=properties['name'],
                 enzymes=properties['enzymes'])
                 if (properties['reversible']):
-                    G.add_edge(product, reactant, id=key,
+                    G.add_edge(product.get_id(), reactant.get_id(), id=key,
                                 name=properties['name'], enzymes=properties['enzymes'])
     return G
 

@@ -8,6 +8,7 @@ import requests
 import SeedTaag.Class as C
 import SeedTaag.Taagseed as tag
 
+
 def defelements(Metabos, Reactions):
     elements = []
     for key in Metabos:
@@ -20,12 +21,12 @@ def defelements(Metabos, Reactions):
         properties = Reactions[key].properties()
         for reactant in properties['reactifs']:
             for product in properties['products']:
-                elements.append({'data': {'source': product.get_id(),
-                                          'target': reactant.get_id(), 'labelid': key, 'name': properties['name'],
+                elements.append({'data': {'target': product.get_id(),
+                                          'source': reactant.get_id(), 'labelid': key, 'name': properties['name'],
                                           'enzymes': properties['enzymes']}})
                 if (properties['reversible']):
-                    elements.append({'data': {'source': product.get_id(),
-                                              'target': reactant.get_id(), 'labelid': key, 'name': properties['name'],
+                    elements.append({'data': {'target': product.get_id(),
+                                              'source': reactant.get_id(), 'labelid': key, 'name': properties['name'],
                                               'enzymes': properties['enzymes']}})
     return elements
 
@@ -47,12 +48,12 @@ def defcsc(Metabos, Reactions, S):
         properties = Reactions[key].properties()
         for reactant in properties['reactifs']:
             for product in properties['products']:
-                elements.append({'data': {'source': product.get_id()+'_',
-                                          'target': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
+                elements.append({'data': {'target': product.get_id()+'_',
+                                          'source': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
                                           'enzymes': properties['enzymes']}})
                 if (properties['reversible']):
-                    elements.append({'data': {'source': product.get_id()+'_',
-                                              'target': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
+                    elements.append({'data': {'target': product.get_id()+'_',
+                                              'source': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
                                               'enzymes': properties['enzymes']}})
     return elements
 
@@ -107,6 +108,7 @@ def visualise(Metabo, react, graph):
         }}
 
     dag_node = tag.find_dag_node(graph)
+    print(dag_node)
     dag_edge = tag.find_dag_edge(Metabo, react, dag_node)
     app = Dash()
     elements1 = defelements(Metabo, react)
