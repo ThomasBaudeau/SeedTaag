@@ -7,14 +7,12 @@ def find_seed(dag,specie):
     """
     seed = {}
     count = 0
-    print(specie)
     for node in dag.nodes:
-        theset = gt.descendants(dag, node)
+        theset = gt.ancestors(dag, node)
         if len(theset) == 0:
             count += 1
             seed[count] = {'seed': specie[node]['groupe'],
                            'proba': '1/'+str(specie[node]['lenght'])}
-    print(seed)
     return seed
 
 def find_dag_node(graph):

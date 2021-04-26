@@ -87,8 +87,8 @@ def eccentricity(G) : # avec graphe Igraph
 def tarjan(Graph):
   return nx.strongly_connected_components(Graph)
 
-def descendants(Graph,node):
-    return nx.algorithms.dag.descendants(Graph, node)
+def ancestors(Graph,node):
+    return nx.algorithms.dag.ancestors(Graph, node)
 
 
 def taagseed(Metabo,Reaction, Graph):
