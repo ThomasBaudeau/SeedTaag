@@ -8,16 +8,14 @@ import requests
 import SeedTaag.Class as C
 import SeedTaag.Taagseed as tag
 
-
-
 def defelements(Metabos, Reactions):
     elements = []
     for key in Metabos:
         properties = Metabos[key].properties()
         elements.append({'data': {'id': key, 'labelid': properties['id'],
-        'name':properties['name'],
-        'compartiment':properties['compartment'],'boundaryConditions':properties['boundaryConditions'],
-        'hasOnlySubtanceUnit':properties['hasOnlySubtanceUnit'],'constant':['constant']}})
+                                  'name': properties['name'],
+                                  'compartiment': properties['compartment'], 'boundaryConditions': properties['boundaryConditions'],
+                                  'hasOnlySubtanceUnit': properties['hasOnlySubtanceUnit'], 'constant': ['constant']}})
     for key in Reactions:
         properties = Reactions[key].properties()
         for reactant in properties['reactifs']:
@@ -27,8 +25,8 @@ def defelements(Metabos, Reactions):
                                           'enzymes': properties['enzymes']}})
                 if (properties['reversible']):
                     elements.append({'data': {'source': product.get_id(),
-                    'target': reactant.get_id(),'labelid':key,'name':properties['name'],
-                    'enzymes':properties['enzymes']}})
+                                              'target': reactant.get_id(), 'labelid': key, 'name': properties['name'],
+                                              'enzymes': properties['enzymes']}})
     return elements
 
 
@@ -42,21 +40,22 @@ def defcsc(Metabos, Reactions, S):
         for key in S[scc]['groupe']:
             properties = Metabos[key].properties()
             elements.append({'data': {'id': key+'_', 'labelid': properties['id'],
-            'name': properties['name'],
-            'compartiment': properties['compartment'], 'boundaryConditions': properties['boundaryConditions'],
-            'hasOnlySubtanceUnit': properties['hasOnlySubtanceUnit'], 'constant': ['constant']}})
+                                      'name': properties['name'],
+                                      'compartiment': properties['compartment'], 'boundaryConditions': properties['boundaryConditions'],
+                                      'hasOnlySubtanceUnit': properties['hasOnlySubtanceUnit'], 'constant': ['constant'], 'parent': scc}})
     for key in Reactions:
-            properties = Reactions[key].properties()
-            for reactant in properties['reactifs']:
-                for product in properties['products']:
+        properties = Reactions[key].properties()
+        for reactant in properties['reactifs']:
+            for product in properties['products']:
+                elements.append({'data': {'source': product.get_id()+'_',
+                                          'target': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
+                                          'enzymes': properties['enzymes']}})
+                if (properties['reversible']):
                     elements.append({'data': {'source': product.get_id()+'_',
-                    'target': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
-                    'enzymes': properties['enzymes']}})
-                    if (properties['reversible']):
-                        elements.append({'data': {'source': product.get_id()+'_',
-                        'target': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
-                        'enzymes': properties['enzymes']}})
+                                              'target': reactant.get_id()+'_', 'labelid': key, 'name': properties['name'],
+                                              'enzymes': properties['enzymes']}})
     return elements
+
 
 def defdag(node, edge):
     elements = []
@@ -65,11 +64,11 @@ def defdag(node, edge):
         count += 1
         lelabel = "strongly connected components "+str(count)
         elements.append({'data': {'id': key, 'labelid': lelabel,
-        'group':node[key]['groupe'],'lenght':node[key]['lenght']}})
+                                  'group': node[key]['groupe'], 'lenght': node[key]['lenght']}})
     for key in edge:
         elements.append(
             {'data': {'source': edge[key]['r'], 'target': edge[key]['p'], 'labelid': key}})
-    return elements   
+    return elements
 
 
 def visualise(Metabo, react, graph):
@@ -112,7 +111,7 @@ def visualise(Metabo, react, graph):
     app = Dash()
     elements1 = defelements(Metabo, react)
     elements2 = defcsc(Metabo, react, dag_node)
-    elements3 = defdag(dag_node,dag_edge)
+    elements3 = defdag(dag_node, dag_edge)
 
     app.layout = html.Div(style=styles['container'], children=[
         dcc.Dropdown(
@@ -122,11 +121,11 @@ def visualise(Metabo, react, graph):
             options=[
                 {'label': name.capitalize(), 'value': name}
                 for name in ['simple_graph', 'scc_graph', 'dag']
-        ]),
+            ]),
         html.Div(className='cy-container', style=styles['cy-container'], children=[
             cyto.Cytoscape(
                 id='cytoscape-responsive',
-                elements=elements1,
+                elements=elements2,
                 stylesheet=default_stylesheet,
                 style=styles['cytoscape'],
                 layout={
@@ -154,7 +153,8 @@ def visualise(Metabo, react, graph):
     @app.callback(Output('cytoscape-responsive', 'elements'),
                   Input('dropdown-update-elements', 'value'))
     def update_layout(value):
-        if value == 'simple_graph':
+        print(value)
+        if value == 'simple_graph' or value == 'grid':
             return elements1
         if value == 'scc_graph':
             return elements2
@@ -162,5 +162,3 @@ def visualise(Metabo, react, graph):
             return elements3
 
     app.run_server()
-
-   
