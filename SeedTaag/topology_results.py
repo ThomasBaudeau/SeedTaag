@@ -6,7 +6,7 @@ import pandas as pd
 
 ### DISPLAY ###
 
-def display_all(Graph, Reactions) :
+def display_all(Graph, Reactions, Metabo):
     """ Display all topology results of the graph on the terminal
 
     Args:
@@ -27,7 +27,7 @@ def display_all(Graph, Reactions) :
     print("\n")
     display_eccentricity(Graph)
     print("\n")
-    display_seed(Graph, Reactions)
+    display_seed(Graph, Reactions, Metabo)
 
 def display_shortest_path(Graph) :
     """ Display all shortest paths of the graph on the terminal
@@ -100,20 +100,21 @@ def display_eccentricity(Graph) :
     for i in range(len(Ec)) :
         print("Eccentricity for the metabolite ", i, ":\t", Ec[i])
 
-def display_seed(Graph, Reactions) :
+def display_seed(Graph, Reactions,Metabo) :
     """ Display all seeds of the metabolic network on the terminal
 
     Args:
         Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph 
         Reactions ([type]): reactions of the metabolic network
     """
-    S= topology.taagseed(Reactions, Graph)
+    S = topology.taagseed(Metabo,Reactions, Graph)
     for key in S.keys() :
         print("Seed : ", S[key]['seed'], "- Probability :", S[key]['proba'])
 
 ### SAVE ###
 
-def save_all(Graph, Reactions) :
+
+def save_all(Graph, Reactions, Metabo):
     """ Save all topology results of the graph in a JSON file
 
     Args:
@@ -125,7 +126,7 @@ def save_all(Graph, Reactions) :
     Co= topology.all_pairs_nodes_connectivity(Graph)
     Ce= topology.degree_centrality(Graph)
     D= topology.degree(Graph)
-    S= topology.taagseed(Reactions, Graph)
+    S = topology.taagseed(Metabo, Reactions, Graph)
     Dia= topology.diameter(Graph)
     Ecc= topology.eccentricity(Graph)
     Bc= topology.betweenness_centrality(Graph)
@@ -259,14 +260,15 @@ def save_betweenness_centrality(Graph) :
     df.to_csv("betweenness_centrality.tsv", sep="\t", index=False)
     print("Backup done")
 
-def save_seed(Graph, Reaction) :
+
+def save_seed(Graph, Reaction, Metabo):
     """ Save all seeds of the metabolic network in a JSON file
 
     Args:
         Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph 
         Reactions ([type]): reactions of the metabolic network
     """
-    S= topology.taagseed(Reaction, Graph)
+    S = topology.taagseed(Metabo, Reaction, Graph)
     with open("seeds.json", "w") as file :
         json.dump(S, file, indent= 4)
     print("Backup done")

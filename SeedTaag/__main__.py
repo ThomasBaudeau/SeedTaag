@@ -49,9 +49,9 @@ def main():
     S, R = storage.init_data(args.input)
     G = storage.init_graph(S, R)
     if args.all:
-        topology.display_all(G, R)
+        topology.display_all(G, R,S)
     if args.save_all:
-        topology.save_all(G, R)
+        topology.save_all(G, R,S)
     if (args.select):
         rep = list(set(args.select))
         if len(rep)>6:
@@ -70,7 +70,7 @@ def main():
                 topology.display_degree(G)
                 print("\n")
             if 's' in rep:
-                topology.display_seed(G,R)
+                topology.display_seed(G,R,S)
                 print("\n")
             if 'dm' in rep:
                 topology.display_diameter(G)
@@ -97,7 +97,7 @@ def main():
                 topology.save_degree(G)
                 print("\n")
             if 's' in rep:
-                topology.save_seed(G, R)
+                topology.save_seed(G, R,S)
                 print("\n")
             if 'dm' in rep:
                 topology.save_diameter(G)

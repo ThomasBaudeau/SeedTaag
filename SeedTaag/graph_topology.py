@@ -90,7 +90,8 @@ def tarjan(Graph):
 def descendants(Graph,node):
     return nx.algorithms.dag.descendants(Graph, node)
 
-def taagseed(Reaction, Graph) :
-  dag, scc_node = tg.dag_init(Reaction, Graph)
+
+def taagseed(Metabo,Reaction, Graph):
+  dag, scc_node = tg.dag_init(Metabo,Reaction, Graph)
   seed = tg.find_seed(dag, scc_node)
   return seed

@@ -10,7 +10,7 @@ def find_seed(dag,specie):
     print(specie)
     for node in dag.nodes:
         theset = gt.descendants(dag, node)
-        if len(theset) != 0:
+        if len(theset) == 0:
             count += 1
             seed[count] = {'seed': specie[node]['groupe'],
                            'proba': '1/'+str(len(specie[node]['groupe']))}
@@ -28,7 +28,8 @@ def find_dag_node(graph):
         node_dag[i+1] = {'groupe': scc[i], 'lenght': len(scc[i])}
     return node_dag
 
-def find_dag_edge(Reactions,scc_node):
+
+def find_dag_edge(Metabo, Reactions, scc_node):
     """
     built dictionary of links between all the specieCC
     """
@@ -43,7 +44,7 @@ def find_dag_edge(Reactions,scc_node):
             for node in scc_node[key]['groupe']:
                 for node2 in scc_node[j]['groupe']:
                     for reaction in Reactions:
-                        rep=Reactions[reaction].isinreaction(node,node2)
+                        rep = Reactions[reaction].isinreaction(Metabo[node], Metabo[node2])
                         if rep != None:
                             if rep:
                                 dag_edge[count] = {'r': key, 'p': j}
@@ -54,9 +55,9 @@ def find_dag_edge(Reactions,scc_node):
     return dag_edge
 
 
-def dag_init(Reactions,Graph):
+def dag_init(Metabo,Reactions, Graph):
     scc_node = find_dag_node(Graph)
-    scc_edge = find_dag_edge(Reactions, scc_node)
+    scc_edge = find_dag_edge(Metabo,Reactions, scc_node)
     dag = ds.init_graph(scc_node, scc_edge,True)
     return dag,scc_node
 
