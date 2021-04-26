@@ -16,7 +16,7 @@ def create_sbml(filename):
     return model
 
 def extract_species(model):
-    DictOfSpecies={species.id: C.Metabo(species.id, species.name, species.compartment,species.boundaryConditions,species.hasOnlySubtanceUnit,species.constant) for species in  model.getListOfSpecies()}
+    DictOfSpecies={species.id: C.Metabo(species.id, species.name, species.compartment,species.boundaryCondition,species.hasOnlySubtanceUnit,species.constant) for species in  model.getListOfSpecies()}
     return DictOfSpecies
 
 # REACTIONS #
