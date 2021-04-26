@@ -21,7 +21,7 @@ def extract_species(model):
     return DictOfSpecies
 
 # REACTIONS #
-def extract_reactions(model, Metabos,stoichiometry):
+def extract_reactions(model, Metabos,stoichiometry=False):
     DictOfReactions={}
     for reaction in model.getListOfReactions():
       try: 
