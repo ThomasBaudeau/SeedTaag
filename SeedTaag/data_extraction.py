@@ -21,15 +21,15 @@ def extract_species(model):
     return DictOfSpecies
 
 # REACTIONS #
-def extract_reactions(model, Metabos):
+def extract_reactions(model, Metabos,stoichiometry):
     DictOfReactions={}
     for reaction in model.getListOfReactions():
       try: 
         ListOfReactifs = [({'species': Metabos[reactif.species],'stochiometry':reactif.stoichiometry}) for reactif in reaction.getListOfReactants()]
         ListOfProducts = [({'species': Metabos[product.species], 'stochiometry':product.stoichiometry})for product in reaction.getListOfProducts()]
         DictOfReactions[reaction.id] = C.Reaction(reaction.id, reaction.name, reaction.reversible, ListOfReactifs, ListOfProducts)
-      except:
-        raise ValueError (print("Error sbml file should  be corrupted"))
+      except Exception as e:
+        raise ValueError (print(e+"Error sbml file should  be corrupted"))
     return DictOfReactions
 
 
