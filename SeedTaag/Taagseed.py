@@ -14,6 +14,7 @@ def find_seed(dag,specie):
             count += 1
             seed[count] = {'seed': specie[node]['groupe'],
                            'proba': '1/'+str(specie[node]['lenght'])}
+    print(seed)
     return seed
 
 def find_dag_node(graph):
