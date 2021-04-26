@@ -107,7 +107,7 @@ def visualise(Metabo, react, graph):
             'zIndex': 999
         }}
 
-    dag_node = tag.scc_species(graph)
+    dag_node = tag.find_dag_node(graph)
     dag_edge = tag.find_dag_edge(Metabo, react, dag_node)
     app = Dash()
     elements1 = defelements(Metabo, react)
