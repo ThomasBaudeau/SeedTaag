@@ -15,7 +15,7 @@ def init_data(file):
 
 def init_graph(Metabos, Reactions,dag=False):
     if not dag:
-        G = gf.extract_species(Metabos, gf.create_graphe)
+        G = gf.extract_species(Metabos)
         G = gf.extract_reactions(Reactions,G)
     else:
         G = gf.dag_init(Metabos,Reactions)
