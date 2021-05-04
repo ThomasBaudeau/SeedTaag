@@ -2,17 +2,17 @@ class Metabo():
     """objet representing metabolites
     """
     def __init__(self, id, name, compartment, boundaryc, hosu, constant):
-"""
-objet repertoriant tous les paramètres associés aux métabolites 
+    """
+    objet repertoriant tous les paramètres associés aux métabolites 
 
-Args: 
-    id( string): identifiant d'un métabolite 
-    name(string): nom du métabolite
-    compartment (string) : compartiment 
-    boundary
-    hosu 
-    constant
-"""
+    Args: 
+        id( string): identifiant d'un métabolite 
+        name(string): nom du métabolite
+        compartment (string) : compartiment 
+        boundary
+        hosu 
+        constant
+    """
         self.id = id
         self.name = name
         self.compartment = compartment
@@ -45,16 +45,16 @@ class Reaction():
   
     def __init__(self, id, name, reversible, reactifs, products,ename):
         """
-objet repertoriant tous les paramètres associés aux réactions
+        objet repertoriant tous les paramètres associés aux réactions
 
-Args: 
-    id( string): identifiant d'un métabolite 
-    name(string): nom du métabolite
-    enzyme (string) : nom de l'enzyme
-    reversible (boolean): indique si la réaction est réversible
-    reactifs (list <tuples>) : liste du couple des identifiants des réactifs et du coefficient stochiométrique 
-    products (list <tuples>) : liste du couple des identifiants des produits et du coefficient stochiométrique 
-"""
+    Args: 
+        id( string): identifiant d'un métabolite 
+        name(string): nom du métabolite
+        enzyme (string) : nom de l'enzyme
+        reversible (boolean): indique si la réaction est réversible
+        reactifs (list <tuples>) : liste du couple des identifiants des réactifs et du coefficient stochiométrique 
+        products (list <tuples>) : liste du couple des identifiants des produits et du coefficient stochiométrique 
+        """
         self.id = id
         self.name = name
         self.enzymes=[ename]
