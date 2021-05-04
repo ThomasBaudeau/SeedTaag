@@ -35,6 +35,15 @@ Firefox
 *<h2>API </h2>*
 __Table of Contents__
 
+<strong> <em> create_sbml () </em></strong> <br>
+	build libSBML object from a SBML file
+
+</strong> <em> extract_species () </em></strong> <br>
+	extract informations about species in model libSBML object
+
+<strong> <em> extract_reactions () </em></strong> <br>
+	extract information about reaction in model libSBML object 
+
  <strong><em>init_data (str -> tuple) </em></strong> <br>
 à partir d'un nom de fichier Sbml créé un modèle et renvoie les métabolites et les réactions <br>
 kind : global funciton <br>
@@ -74,29 +83,78 @@ c'est un degré de centralité normalisé sur le maximum de degré possible pour
 
   <strong><em> betweenness_centrality() </em></strong> <br>
 renvoie un dictionnay of nodes with a betweenness centrality as a value <br>
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
  <strong><em> all_pairs_nodes_connectivity () </em></strong>  <br>
 renvoie dictionary with nodes connectivity between all pairs of nodes in G <br>
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
  <strong><em> degree () </em></strong>  <br> 
+ Kind : 
+mode :
+paramereters : 
+description 
+return 
 
  <strong><em> diameter () </em></strong>  <br> 
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
   <strong><em> tarjan () </em></strong>  <br>  
- 	renvoie une liste des composants strictement convexes du graphe 
+ renvoie une liste des composants strictement convexes du graphe 
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
  <strong><em> all_tp ()  </em></strong>  <br> 
-	renvoie tous les tris topologiques du graphe possibles 
+renvoie tous les tris topologiques du graphe possibles 
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
  <strong><em> taagseed ()  </em></strong>  <br> 
-
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 
 d <strong><em> display_all () </em></strong>  <br>  
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
  <strong><em>  display_shortest_path ()  </em></strong>  <br>
+ Kind : 
+mode :
+paramereters : 
+description 
+return 
 
- <strong><em> display_centrality ()  </em></strong>  <br> 
+<strong><em> display_centrality ()  </em></strong>  <br> 
+ Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 display_connectivity () 
 
@@ -129,13 +187,6 @@ scc_link ()
 
 dag_init () 
 
-create_sbml ()
-	build libSBML object from a SBML file
 
-extract_species ()
-	extract informations about species in model libSBML object
-
-extract_reactions () 
-	extract information about reaction in model libSBML object 
 
 
