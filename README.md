@@ -28,8 +28,8 @@ Agathe KOMAROFF – agathe.komaroff@etu.u-bordeaux.fr
 
 *<h2>Programs versions used </h2>*
 
-Google Chrome <br>
-Firefox 
+Google Chrome <br> 87.0.4280.163
+Firefox <br> 72.0.2
 
 
 *<h2>API </h2>*
