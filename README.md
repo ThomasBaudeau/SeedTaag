@@ -35,15 +35,21 @@ Firefox 72.0.2 <br>
 *<h2>API </h2>*
 __Table of Contents__
 
-<strong> <em> create_sbml () </em></strong> <br>
-build libSBML object from a SBML file <br>
+<strong> <em> create_sbml (str -> ) </em></strong> <br>
+construit un objet libSBML à partir d'un fichier SBML <br>
 kind: global function <br>
 parameters: file de type str <br>
-description : name of the sbml file to read <br>
-return: libsbml objet <br>
+description : nom du fichier sbml à lire <br>
+return: libsbml objet: objet qui contient toutes les informations du fichier <br>
 
-</strong> <em> extract_species () </em></strong> <br>
-	extract informations about species in model libSBML object
+
+</strong> <em> extract_species (str -> ) </em></strong> <br>
+extraire des informations sur les espèces dans un modèle libSBML <br>
+Kind: global function <br>
+parameters:  <br> 
+description: créer un dictionnaire d'objet Metabo à partir d'un objet libsbml <br>
+return :  dictionnaire contenant tous les métabolites de l'objet libsbml sous forme d'objets métabolites <br>
+   
 
 <strong> <em> extract_reactions () </em></strong> <br>
 	extract information about reaction in model libSBML object 
