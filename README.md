@@ -35,14 +35,14 @@ Firefox 72.0.2 <br>
 *<h2>API </h2>*
 __Table of Contents__
 
-<strong> <em> create_sbml (str -> ) </em></strong> <br>
+<strong> <em> create_sbml (str  → ) </em></strong> <br>
 construit un objet libSBML à partir d'un fichier SBML <br>
 kind: global function <br>
 parameters: file de type str <br>
 description : nom du fichier sbml à lire <br>
-return: libsbml objet: objet qui contient toutes les informations du fichier <br>
+return: libsbml objet, objet qui contient toutes les informations du fichier <br>
 
-<strong> <em> extract_species (str -> ) </em></strong> <br>
+<strong> <em> extract_species (str  → ) </em></strong> <br>
 extraire des informations sur les espèces dans un modèle libSBML <br>
 Kind: global function <br>
 parameters:  <br> 
@@ -50,19 +50,13 @@ description: créer un dictionnaire d'objet Metabo à partir d'un objet libsbml 
 return :  dictionnaire contenant tous les métabolites de l'objet libsbml sous forme d'objets métabolites <br>
    
 
-<strong> <em> extract_reactions (str -> ) </em></strong> <br>
+<strong> <em> extract_reactions ((model, Metabos → objet ) </em></strong> <br>
 extraire des informations sur les réactions dans un modèle libSBML <br>
 kind : global function <br>
 parameters: <br>
-    Args :
-        model (libsbml object) : objet qui contient toutes les informations contenues dans le fichier sbml   
-        Metabos (dictionnaire d'objets metabo) : dictionnaire contenant les métabolites en tant qu'objets métabolites
-    Raises :
-        ValueError : attrape une exception si la liste des réactifs ou des produits ne peut pas être créée correctement.
-    Retourne :
-        dict : dictionnaire contenant toutes les réactions de l'objet libsbml sous forme d'objets de réaction.
-
-
+description : model de type objet <br>  
+Metabos de type objet <br>
+Return: dictionnaire contenant toutes les réactions de l'objet libsbml sous forme d'objets de réaction.<br>
 
 
  <strong><em>init_data (str -> tuple) </em></strong> <br>
