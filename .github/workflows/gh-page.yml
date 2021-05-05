@@ -30,14 +30,13 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: "Install Python dependencies"
+      - name: Install Python dependencies
         run: |
           pip3 install setuptools
-          pip3 install sphinx sphinx-rtd-theme
-
-      - name: "Build Sphinx Doc"
+          pip3 install nox
+      - name: Build Sphinx Doc
         run: |
-          make html
+          nox --session gendoc
 
       # 3. Déploiement sur les Github Pages
 
