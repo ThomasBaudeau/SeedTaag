@@ -42,8 +42,7 @@ parameters: file de type str <br>
 description : nom du fichier sbml à lire <br>
 return: libsbml objet: objet qui contient toutes les informations du fichier <br>
 
-
-</strong> <em> extract_species (str -> ) </em></strong> <br>
+<strong> <em> extract_species (str -> ) </em></strong> <br>
 extraire des informations sur les espèces dans un modèle libSBML <br>
 Kind: global function <br>
 parameters:  <br> 
@@ -145,7 +144,7 @@ description
 return 
 
 
-d <strong><em> display_all () </em></strong>  <br>  
+<strong><em> display_all () </em></strong>  <br>  
 Kind : 
 mode :
 paramereters : 
@@ -153,50 +152,112 @@ description
 return 
 
  <strong><em>  display_shortest_path ()  </em></strong>  <br>
- Kind : 
+Kind : 
 mode :
 paramereters : 
 description 
 return 
 
 <strong><em> display_centrality ()  </em></strong>  <br> 
- Kind : 
+Kind : 
 mode :
 paramereters : 
 description 
 return 
 
 <strong><em>  display_connectivity ()   </em></strong>  <br>
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  display_degree ()  </em></strong>  <br> 
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  display_diameter ()  </em></strong>  <br> 
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em> display_seed ()  </em></strong>  <br> 
-
-
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  save_shortest_path ()  </em></strong>  <br> 
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  save_centrality ()  </em></strong>  <br>
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  save_connectivity ()   </em></strong>  <br>
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  save_degree ()   </em></strong>  <br>s
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  save_seed ()  </em></strong>  <br> 
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  find_seed ()  </em></strong>  <br>
 	find seed element in a directed acyclic graph
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  scc_species ()  </em></strong>  <br>
 	build dictionary of all the species of graph
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  scc_link ()  </em></strong>  <br>
 	build dictionary of links between all the species 
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 <strong><em>  dag_init ()   </em></strong>  <br>
 
-
+Kind : 
+mode :
+paramereters : 
+description 
+return 
 
 
