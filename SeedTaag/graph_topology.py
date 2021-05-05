@@ -63,8 +63,8 @@ def diameter(Graph) : # avec graphe Igraph
   :returns: Diameter
   :rtype: int
   """
-  G = Graph.from_networkx(G)
-  return Graph.diameter(G)
+  G = Graph.from_networkx(Graph)
+  return Graph.diameter(Graph)
 
 def eccentricity(Graph) : # avec graphe Igraph
   """Measure the eccentricity of each nodes
@@ -74,8 +74,8 @@ def eccentricity(Graph) : # avec graphe Igraph
   :returns: [eccentricity_1, eccentricity_2, ...]
   :rtype: list
   """
-  G = Graph.from_networkx(G)
-  return Graph.eccentricity(G)
+  G = Graph.from_networkx(Graph)
+  return Graph.eccentricity(Graph)
 
 def tarjan(Graph):
   """Find the strongly connected component of the graph with the tarjan algorithm
