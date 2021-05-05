@@ -35,6 +35,11 @@ Firefox 72.0.2 <br>
 *<h2>API </h2>*
 __Table of Contents__
 
+| Param | Type | Description |
+|:----------:|----------| ----------|
+| value | value 1<br>value 2 |
+| value | value 1<br>value 2 |
+
 <strong> <em> create_sbml () </em></strong> <br>
 	build libSBML object from a SBML file
 
