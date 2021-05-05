@@ -35,13 +35,12 @@ Firefox 72.0.2 <br>
 *<h2>API </h2>*
 __Table of Contents__
 
-| Param | Type | Description |
-|:------------------------:|------------------------| ------------------------|
-| value | value 1<br>value 2 |
-| value | value 1<br>value 2 |
-
 <strong> <em> create_sbml () </em></strong> <br>
-	build libSBML object from a SBML file
+build libSBML object from a SBML file <br>
+kind: global function <br>
+parameters: file de type str <br>
+description : name of the sbml file to read <br>
+return: libsbml objet <br>
 
 </strong> <em> extract_species () </em></strong> <br>
 	extract informations about species in model libSBML object
