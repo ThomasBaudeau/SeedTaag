@@ -50,8 +50,20 @@ description: créer un dictionnaire d'objet Metabo à partir d'un objet libsbml 
 return :  dictionnaire contenant tous les métabolites de l'objet libsbml sous forme d'objets métabolites <br>
    
 
-<strong> <em> extract_reactions () </em></strong> <br>
-	extract information about reaction in model libSBML object 
+<strong> <em> extract_reactions (str -> ) </em></strong> <br>
+extraire des informations sur les réactions dans un modèle libSBML <br>
+kind : global function <br>
+parameters: <br>
+    Args :
+        model (libsbml object) : objet qui contient toutes les informations contenues dans le fichier sbml   
+        Metabos (dictionnaire d'objets metabo) : dictionnaire contenant les métabolites en tant qu'objets métabolites
+    Raises :
+        ValueError : attrape une exception si la liste des réactifs ou des produits ne peut pas être créée correctement.
+    Retourne :
+        dict : dictionnaire contenant toutes les réactions de l'objet libsbml sous forme d'objets de réaction.
+
+
+
 
  <strong><em>init_data (str -> tuple) </em></strong> <br>
 à partir d'un nom de fichier Sbml créé un modèle et renvoie les métabolites et les réactions <br>
@@ -92,172 +104,172 @@ c'est un degré de centralité normalisé sur le maximum de degré possible pour
 
   <strong><em> betweenness_centrality() </em></strong> <br>
 renvoie un dictionnay of nodes with a betweenness centrality as a value <br>
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
  <strong><em> all_pairs_nodes_connectivity () </em></strong>  <br>
 renvoie dictionary with nodes connectivity between all pairs of nodes in G <br>
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
  <strong><em> degree () </em></strong>  <br> 
- Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
  <strong><em> diameter () </em></strong>  <br> 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
   <strong><em> tarjan () </em></strong>  <br>  
  renvoie une liste des composants strictement convexes du graphe 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
  <strong><em> all_tp ()  </em></strong>  <br> 
 renvoie tous les tris topologiques du graphe possibles 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
  <strong><em> taagseed ()  </em></strong>  <br> 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 
 <strong><em> display_all () </em></strong>  <br>  
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
  <strong><em>  display_shortest_path ()  </em></strong>  <br>
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em> display_centrality ()  </em></strong>  <br> 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em>  display_connectivity ()   </em></strong>  <br>
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em>  display_degree ()  </em></strong>  <br> 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em>  display_diameter ()  </em></strong>  <br> 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em> display_seed ()  </em></strong>  <br> 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br> 
 
 <strong><em>  save_shortest_path ()  </em></strong>  <br> 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em>  save_centrality ()  </em></strong>  <br>
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em>  save_connectivity ()   </em></strong>  <br>
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em>  save_degree ()   </em></strong>  <br>s
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br> 
 
 <strong><em>  save_seed ()  </em></strong>  <br> 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em>  find_seed ()  </em></strong>  <br>
 	find seed element in a directed acyclic graph
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br> 
 
 <strong><em>  scc_species ()  </em></strong>  <br>
 	build dictionary of all the species of graph
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br> 
 
 <strong><em>  scc_link ()  </em></strong>  <br>
 	build dictionary of links between all the species 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 <strong><em>  dag_init ()   </em></strong>  <br>
 
-Kind : 
-mode :
-paramereters : 
-description 
-return 
+Kind : <br>
+mode :<br>
+paramereters :<br> 
+description <br>
+return <br>
 
 
