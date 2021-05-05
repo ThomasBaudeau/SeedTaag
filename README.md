@@ -1,4 +1,4 @@
-*<h2>Install </h2>*
+*<h2>Installation </h2>*
 
 **import**
 
@@ -10,10 +10,10 @@
 
 
 
-**Usage** 
+**Utilisation** 
 
 
-*<h2>Authors </h2>* 
+*<h2>Autheurs </h2>* 
 
 Students of the Bioinformatics Master of the University of Bordeaux 
 
@@ -26,14 +26,14 @@ Grégory BORDIER – gregory.bordier@etu.u-bordeaux.fr
 Agathe KOMAROFF – agathe.komaroff@etu.u-bordeaux.fr 
 
 
-*<h2>Programs versions used </h2>*
+*<h2>Programmes utilisés </h2>*
 
 Google Chrome 87.0.4280.163 <br>
 Firefox 72.0.2 <br>
 
 
 *<h2>API </h2>*
-__Table of Contents__
+__Sommaire__
 
 <strong> <em> create_sbml (str  → objet ) </em></strong> <br>
 construit un objet libSBML à partir d'un fichier SBML <br>
