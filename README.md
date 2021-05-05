@@ -54,8 +54,7 @@ return :  dictionnaire contenant tous les métabolites de l'objet libsbml sous f
 extraire des informations sur les réactions dans un modèle libSBML <br>
 kind : global function <br>
 parameters: <br>
-description : model de type objet <br>  
-Metabos de type objet <br>
+description : model de type objet et Metabos de type objet <br>
 Return: dictionnaire contenant toutes les réactions de l'objet libsbml sous forme d'objets de réaction.<br>
 
 
@@ -70,8 +69,7 @@ return : couple composé des métabolites et des réactions <br>
 génère le graphe à partir d'une liste de métabolites et de réactions  <br>
 kind : global function <br>
 return : graph networkx <br>
-parameters : métabos de type objet
-Reaction de type objet<br>
+parameters : métabos de type objet et Reaction de type objet<br>
 description : liste des objets métabos<br>
 mode : affichage du graphe avec réactions et métabolites <br>
 
