@@ -73,7 +73,7 @@ description : liste des objets métabos<br>
 mode : affichage du graphe avec réactions et métabolites <br>
 return : graph networkx <br>
 
- <strong><em>_init_ (id, name, compartment, boundaryx, hosu, constant → objet ) </em></strong> <br>
+ <strong><em>_init_ (id, name, compartment, boundaryc, hosu, constant → objet ) </em></strong> <br>
 génère tous les paramètres associés aux métabolites <br>
 kind: global function <br>
 parameters: identifiant de type str, name de type str, compartment de type str <br>
@@ -98,6 +98,34 @@ kind: global function <br>
 parameters: stochiometry de type boolean <br>
 return : la liste des tuples produits -coefficients stoechiométrique <br>
 
+<strong><em>properties (str → dict) </em></strong> <br>
+renvoie un dictionnaire contenant tous les paramètres d'une réaction <br>
+kind: global function <br>
+parameters: 
+return: un dictionnaire contenant les paramètres id, name, reversible, reactifs, products, et enzymes
+
+<strong><em>get_reversible (str → boolean) </em></strong> <br>
+donne la réversibilité d'une réaction <br>
+kind: global function <br>
+parameters: <br>
+return: <br>
+
+<strong><em>equation (str → str) </em></strong> <br>
+renvoie l'équation stoechiométrique de la réaction <br>
+kind: global function <br>
+parameters: <br>
+description : à partir d'une réaction renvoie l'équation stoechiométrique de la réaction
+return: une équation sous forme de string
+
+<strong><em> get_enzyme_name ( → ) </em></strong> <br>
+renvoie le nom de l'enzyme pour la réaction <br>
+kind: global function <br>
+parameters: 
+return: le nom de l'enzyme sous forme de string
+
+<strong><em> add_enzyme (enzyme → objet ) </em></strong> <br>
+
+<strong><em> isinreaction (a, b → ) </em></strong> <br>
 
 
 <strong><em>create_graphe ()  </em></strong> <br>
