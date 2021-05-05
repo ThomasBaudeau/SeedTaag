@@ -1,0 +1,38 @@
+Requirements
+============
+
+
+Operating Systems
+-----------------
+
+Supported
+~~~~~~~~~
+
+SeedTaag was made to work on the following systems:
+
+* Linux
+
+
+Python Versions
+---------------
+
+Python currently supports
+
+* Python 3.5+
+
+Other dependencies
+-------------------
+
+Other packages needed to run SeedTaag 
+
+* networks 2.5+ (https://networkx.org/)
+* python-libsbml 5.19.0+ (https://pypi.org/project/python-libsbml/)
+* pandas 1.2.4+ (https://pandas.pydata.org/)
+* dash 1.20.0+ (https://dash.plotly.com/installation)
+* dash-cytoscape 0.2.0+ ()
+* python-igraph 0.9.1+ (https://igraph.org/python/)
+
+Supported web browser
+----------------------
+* Google Chrome 87.0.4280.163
+* Firefox 72.0.2 

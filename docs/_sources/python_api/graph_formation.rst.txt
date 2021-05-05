@@ -1,0 +1,4 @@
+module graph_formation
+=========================   
+.. automodule:: SeedTaag.graph_formation   
+   :members:

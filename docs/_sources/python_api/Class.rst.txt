@@ -1,0 +1,6 @@
+Metabo & Reaction class
+========================
+.. automodule:: SeedTaag.Class
+    :members:
+    :undoc-members:
+    :show-inheritance:

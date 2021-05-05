@@ -1,0 +1,18 @@
+SeedTaag API
+====================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   
+   ./taagseed.rst
+   ./Class.rst
+   ./data_extraction.rst
+   ./data_storage.rst
+   ./graph_formation.rst
+   ./graph_topology.rst
+   ./topology.rst
+   ./visualise.rst
+      
+   
+
