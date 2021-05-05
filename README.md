@@ -166,36 +166,36 @@ paramereters :
 description 
 return 
 
-display_connectivity () 
+<strong><em>  display_connectivity ()   </em></strong>  <br>
 
-display_degree () 
+<strong><em>  display_degree ()  </em></strong>  <br> 
 
-display_diameter () 
+<strong><em>  display_diameter ()  </em></strong>  <br> 
 
-display_seed () 
+<strong><em> display_seed ()  </em></strong>  <br> 
 
-save_all () 
 
-save_shortest_path () 
 
-save_centrality () 
+<strong><em>  save_shortest_path ()  </em></strong>  <br> 
 
-save_connectivity () 
+<strong><em>  save_centrality ()  </em></strong>  <br>
 
-save_degree () 
+<strong><em>  save_connectivity ()   </em></strong>  <br>
 
-save_seed () 
+<strong><em>  save_degree ()   </em></strong>  <br>s
 
-find_seed ()
+<strong><em>  save_seed ()  </em></strong>  <br> 
+
+<strong><em>  find_seed ()  </em></strong>  <br>
 	find seed element in a directed acyclic graph
 
-scc_species ()
+<strong><em>  scc_species ()  </em></strong>  <br>
 	build dictionary of all the species of graph
 
-scc_link ()
+<strong><em>  scc_link ()  </em></strong>  <br>
 	build dictionary of links between all the species 
 
-dag_init () 
+<strong><em>  dag_init ()   </em></strong>  <br>
 
 
 
