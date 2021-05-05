@@ -36,7 +36,7 @@ Firefox 72.0.2 <br>
 __Table of Contents__
 
 | Param | Type | Description |
-|:----------:|----------| ----------|
+|:------------------------:|------------------------| ------------------------|
 | value | value 1<br>value 2 |
 | value | value 1<br>value 2 |
 
