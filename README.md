@@ -35,14 +35,14 @@ Firefox 72.0.2 <br>
 *<h2>API </h2>*
 __Table of Contents__
 
-<strong> <em> create_sbml (str  → ) </em></strong> <br>
+<strong> <em> create_sbml (str  → objet ) </em></strong> <br>
 construit un objet libSBML à partir d'un fichier SBML <br>
 kind: global function <br>
 parameters: file de type str <br>
 description : nom du fichier sbml à lire <br>
 return: libsbml objet, objet qui contient toutes les informations du fichier <br>
 
-<strong> <em> extract_species (str  → ) </em></strong> <br>
+<strong> <em> extract_species (str  → dict) </em></strong> <br>
 extraire des informations sur les espèces dans un modèle libSBML <br>
 Kind: global function <br>
 parameters:  <br> 
@@ -91,6 +91,13 @@ objet repertoriant tous les paramètres associés aux réactions <br>
 kind : global function <br>
 parameters: identifiant de type str, enzyme de type str, reversible de type boolean, reactifs de type tuples et products de type tuples <br>
 description renvoie les paramètres id, name, enzyme , reversible, reactifs et products <br>
+
+<strong><em>get_products (str → tuples) </em></strong> <br>
+renvoie la liste des identifiants des produits et le paramètre stoechiométrique <br>
+kind: global function <br>
+parameters: stochiometry de type boolean <br>
+return : la liste des tuples produits -coefficients stoechiométrique <br>
+
 
 
 <strong><em>create_graphe ()  </em></strong> <br>
