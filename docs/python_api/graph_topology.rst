@@ -1,4 +1,0 @@
-SEEDTAAG graph_topology
-========================  
-.. automodule:: SeedTaag.graph_topology  
-   :members:
