@@ -36,13 +36,13 @@ def extract_species(model):
 def extract_reactions(model, Metabos):
     """create a reaction object dictionary from a libsml object
 
-    :Args libsbml_object model: libsbml object containing all informations contained in sbml file   
-    :Args dict Metabos: dictionary containing metabolites as metabolite objects
+    :param libsbml_object model: libsbml object containing all informations contained in sbml file   
+    :param dict Metabos: dictionary containing metabolites as metabolite objects
 
-    :Returns:dictionary containing all the reaction of the libsbml object as reaction objects
+    :returns:dictionary containing all the reaction of the libsbml object as reaction objects
     :rtype:dict 
     
-    Raises ValueError: catch exception if the reactant or product list can't be correctly create
+    :Raises ValueError: catch exception if the reactant or product list can't be correctly create
     """
     DictOfReactions={}
     for reaction in model.getListOfReactions():
