@@ -45,4 +45,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
-          FOLDER: Sphinx/build/html/  # <- Dossier contenant notre documentation générée
+          FOLDER: /build/html/  # <- Dossier contenant notre documentation générée
