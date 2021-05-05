@@ -70,7 +70,7 @@ return : couple composé des métabolites et des réactions <br>
 génère le graphe à partir d'une liste de métabolites et de réactions  <br>
 kind : global function <br>
 return : graph networkx <br>
-parameters : métabos de type objet<br>
+parameters : métabos de type objet
 Reaction de type objet<br>
 description : liste des objets métabos<br>
 mode : affichage du graphe avec réactions et métabolites <br>
