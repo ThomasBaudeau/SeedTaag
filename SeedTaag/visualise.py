@@ -12,9 +12,10 @@ import SeedTaag.Taagseed as tag
 def defelements(Metabos, Reactions):
     """Built a list of data from dictionary object of type Metabo and Reaction
 
-    :param dict Metabos : Dictionary of Metabo object
-    :param dict Reactions : Dictionary of Reaction object
-
+    :param Metabos: Dictionary of Metabo object
+    :type Metabos: dict
+    :param Reactions: Dictionary of Reaction object
+    :type Reactions: dict
     :returns: List of all the informations extracts from the object
     :rtype: list
     """
@@ -42,10 +43,12 @@ def defelements(Metabos, Reactions):
 def defcsc(Metabos, Reactions, S):
     """Built a list of data for create Dash graph with apparent strongly connected component
 
-    :param dict Metabos : Dictionary of Metabo object
-    :param dict Reactions : Dictionary of Reaction object
-    :param dict S : Dictionary of strongly connected component
-
+    :param Metabos : Dictionary of Metabo object
+    :type Metabos: dict
+    :param Reactions : Dictionary of Reaction object
+    :type Reactions: dict
+    :param S : Dictionary of strongly connected component
+    :type S: dict 
     :returns: List of all the informations for built Dash graph with apparent strongly connected component
     :rtype: list
     """
@@ -78,9 +81,10 @@ def defcsc(Metabos, Reactions, S):
 def defdag(node, edge):
     """Built a list of data for create Dash graph with strongly connected component as node
 
-    :param dict node: Dictionary of strongly connected component
-    :param dict edge: Dictionary of strongly connected component link
-
+    :param node: Dictionary of strongly connected component
+    :type node: dict
+    :param edge: Dictionary of strongly connected component link
+    :type edge: dict
     :returns: List of all the informations for built Dash graph with strongly connected component as nodes
     :rtype: list
     """
@@ -100,9 +104,12 @@ def defdag(node, edge):
 def visualise(Metabo, react, graph):
     """Start web serveur for visualise graph of a metabolite network
 
-    :param dict Metabos: Dictionary of Metabo object
-    :param dict Reactions: Dictionary of Reaction object
-    :param networkx_object graph : Networkx graph
+    :param Metabos: Dictionary of Metabo object
+    :type Metabos: dict
+    :param Reactions: Dictionary of Reaction object
+    :type Reactions: dict
+    :param graph: Networkx graph
+    :type graph:networkx_object
     """
     default_stylesheet = [
         {
@@ -188,8 +195,8 @@ def visualise(Metabo, react, graph):
     def update_layout(value):
         """Uptdate the graph between three types of visualisation
 
-        :param str value: Name of the selected graph
-
+        :param value: Name of the selected graph
+        :type value: string
         :returns: List of the graph representation
         :rtype: list
         """

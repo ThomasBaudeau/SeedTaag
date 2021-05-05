@@ -3,15 +3,13 @@ import SeedTaag.graph_formation as gf
 import os
 
 def init_data(file):
-    """create two dictionaries of reaction or metabo object from an sbml file
+    """Create two dictionaries of reaction or metabo object from an sbml file
 
-    :param string file : name of the sbml file
-
-    :returns: two dictionaries containing objects of type metabo or of type reaction
-
+    :param file: Name of the sbml file
+    :type file: string
+    :returns: Two dictionaries containing objects of type metabo or of type reaction
     :rtype: dictionary
-
-    :Raises ValueError: Error if the file can't be open
+    :raises ValueError: Error if the file can't be open
     """
     try:
         open(file)
@@ -24,12 +22,14 @@ def init_data(file):
 
 
 def init_graph(Metabos, Reactions,dag=False):
-    """create networkx graph with two dictionaries of metabo or of reaction or create network x graph with dict of node and edge
+    """Create networkx graph with two dictionaries of metabo or of reaction or create network x graph with dict of node and edge
 
-    :param dict Metabos:dictionary of metabo object
-    :param dict Reactions:dictionary of reaction object
-    :param boolean dag: select function mode (default=False)
-
+    :param Metabos: Dictionary of metabo object
+    :type Metabos: dict
+    :param Reactions: Dictionary of reaction object
+    :type Reactions: dict
+    :param dag: Select function mode (default=False)
+    :type dag: boolean
     :returns: networkx graph 
     :rtype: networkx_objet
     """

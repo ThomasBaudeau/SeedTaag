@@ -5,8 +5,9 @@ def find_seed(dag,specie):
     """Find the seed of a dag
 
     :param networkx_object dag : Networkx graph must be a directed acyclic graph
-    :param specie dict: Dictionary of node contained in the graph
-
+    :type dag:
+    :param specie: Dictionary of node contained in the graph
+    :type specie: dict
     :returns: Dictionary of seeds
     :rtype: dict
     """
@@ -23,8 +24,8 @@ def find_seed(dag,specie):
 def find_dag_node(graph):
     """Create dictionary of node with strongly connected components informations
 
-    :param networkx_object graph: Networkx graph must be directed
-
+    :param graph: Networkx graph must be directed
+    :type graph: networkx_object
     :returns: Dictionary of node with strongly connected components informations
     :rtype: dict
     """
@@ -40,10 +41,12 @@ def find_dag_node(graph):
 def find_dag_edge(Metabo, Reactions, scc_node):
     """Built dictionary of the relation connecting two nodes
 
-    :param dict Metabo : Dictionary of Metabo object
-    :param dict Reactions : Dictionary of Reaction object
-    :param dict scc_node : Dictionary of node
-
+    :param Metabo: Dictionary of Metabo object
+    :type Metabo: dict
+    :param Reactions: Dictionary of Reaction object
+    :type Reactions: dict 
+    :param scc_node: Dictionary of node
+    :type scc_node: dict 
     :returns: Dictionary of reaction built with the relations between two nodes
     :rtype: dict
     """
@@ -72,10 +75,12 @@ def find_dag_edge(Metabo, Reactions, scc_node):
 def dag_init(Metabo,Reactions, Graph):
     """Create sbml graph and dict of their related nodes 
 
-    :param dict Metabo : Dictionary of Metabo object
-    :param dict Reactions : Dictionary of Reaction object
-    :param networkx_object Graph : networkx graph must be directed
-
+    :param Metabo: Dictionary of Metabo object
+    :type Metabo: dict
+    :param Reactions: Dictionary of Reaction object
+    :type Reaction: dict
+    :param Graph: networkx graph must be directed
+    :type Graph: networkx_object
     :returns: Graph built with networkx and a dictionary of node with strictly connected component informations
     :rtype: networkx object, dict
     """

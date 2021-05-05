@@ -3,11 +3,11 @@ import SeedTaag.Class as C
 
 
 def extract_species(Metabos):
-    """built and fill networkx graph with metabolite
+    """Built and fill networkx graph with metabolite
 
-    :Args dict Metabos:dictionary of Metabo object
-
-    :Returns: graph built with networkx
+    :param Metabos: Dictionary of Metabo object
+    :type Metabos: dict 
+    :returns: graph built with networkx
     :rtype:networkx_object
     """                                                         
     G = nx.DiGraph()
@@ -19,14 +19,14 @@ def extract_species(Metabos):
     return G
    
 def extract_reactions(Reactions, G):
-    """edits networkx graph with reactions
+    """Edits networkx graph with reactions
 
-    :Args dict Metabos:dictionary of reaction object
-    :Args networkx_object G:networkx graph
-
-    :Returns: graph built with networkx, reactions are edges
-    :rtype:networkx_object
- 
+    :param Metabos:dictionary of reaction object
+    :param G: networkx graph
+    :type Metabos: dict
+    :type G: networkx_object
+    :returns: graph built with networkx reactions are edges
+    :rtype: networkx_object
     """ 
     for key in Reactions:
         properties = Reactions[key].properties()
@@ -41,11 +41,12 @@ def extract_reactions(Reactions, G):
 
 
 def dag_init(node,edge):
-    """create networkx specific graph (directed acyclic graph)
+    """Create networkx specific graph (directed acyclic graph)
 
-    :Args dict node: dictionary containing all the information about the nodes to build the graph
-    :Args dict edge: dictionary containing all the information about the edge to build the graph
-
+    :param node: dictionary containing all the information about the nodes to build the graph
+    :param edge: dictionary containing all the information about the edge to build the graph
+    :type node: dict
+    :type edge: dict 
     :Returns:networkx graph (dag)
     :rtype:networkx_object
     """

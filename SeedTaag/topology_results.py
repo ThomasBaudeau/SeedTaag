@@ -9,9 +9,12 @@ import pandas as pd
 def display_all(Graph, Reactions, Metabo):
     """Display all topology results of the graph on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph
-    :param dict Reactions : Dictionary of Reaction object 
-    :param dict Metabo : Dictionary of Metabo object 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
+    :param Reactions: Dictionary of Reaction object
+    :type Reactions: dict
+    :param Metabo: Dictionary of Metabo object 
+    :type Metabo: dict
     """
     display_shortest_path(Graph)
     print("\n")
@@ -33,7 +36,8 @@ def display_all(Graph, Reactions, Metabo):
 def display_shortest_path(Graph):
     """Display all shortest paths of the graph on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     SP = topology.shortest_path(Graph)
     for key in SP.keys():
@@ -45,7 +49,8 @@ def display_shortest_path(Graph):
 def display_degree_centrality(Graph):
     """Display the degree centrality of each nodes on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     C = topology.degree_centrality(Graph)
     for key in C.keys():
@@ -56,7 +61,8 @@ def display_degree_centrality(Graph):
 def display_betweenness_centrality(Graph):
     """Display the betweenness centrality of each nodes on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView 
     """
     Bc = topology.betweenness_centrality(Graph)
     for key in Bc.keys():
@@ -67,7 +73,8 @@ def display_betweenness_centrality(Graph):
 def display_connectivity(Graph):
     """Display the connectivity of each pairs of nodes on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     C = topology.all_pairs_nodes_connectivity(Graph)
     for key in C.keys():
@@ -79,7 +86,8 @@ def display_connectivity(Graph):
 def display_degree(Graph):
     """Display the degree of each nodes on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     D = topology.degree(Graph)
     for attribut in D:
@@ -90,7 +98,8 @@ def display_degree(Graph):
 def display_diameter(Graph):
     """Display the graph diameter on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView 
     """
     Dia = topology.diameter(Graph)
     print("Diameter :\t", Dia)
@@ -99,7 +108,8 @@ def display_diameter(Graph):
 def display_eccentricity(Graph):
     """Display the eccentricity of each nodes on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     Ec = topology.eccentricity(Graph)
     for i in range(len(Ec)):
@@ -109,9 +119,12 @@ def display_eccentricity(Graph):
 def display_seed(Graph, Reactions, Metabo):
     """Display all seeds of the metabolic network on the terminal
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
-    :param dict Reactions : Dictionary of Reaction object
-    :param dict Metabo : Dictionary of Metabo object 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
+    :param Reactions: Dictionary of Reaction object
+    :type Reactions: dict
+    :param Metabo: Dictionary of Metabo object 
+    :type Metabo: dict
     """
     S = topology.taagseed(Metabo, Reactions, Graph)
     for key in S.keys():
@@ -123,9 +136,12 @@ def display_seed(Graph, Reactions, Metabo):
 def save_all(Graph, Reactions, Metabo):
     """Save all topology results of the graph in a JSON file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
-    :param dict Reactions : Dictionary of Reaction object
-    :param dict Metabo : Dictionary of Metabo object  
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
+    :param Reactions: Dictionary of Reaction object
+    :type Reactions: dict
+    :param Metabo: Dictionary of Metabo object 
+    :type Metabo: dict  
     """
     De = {}
     SP = topology.shortest_path(Graph)
@@ -149,7 +165,8 @@ def save_all(Graph, Reactions, Metabo):
 def save_shortest_path(Graph):
     """Save all shortest paths of the graph in a JSON file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     SP = topology.shortest_path(Graph)
     with open("shortest_paths.json", "w") as file:
@@ -160,7 +177,8 @@ def save_shortest_path(Graph):
 def save_degree_centrality(Graph):
     """Save the degree centrality of each nodes in a tsv file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     C = topology.degree_centrality(Graph)
 
@@ -181,7 +199,8 @@ def save_degree_centrality(Graph):
 def save_connectivity(Graph):
     """Save the connectivity of each pairs of nodes in a tsv file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     C = topology.all_pairs_node_connectivity(Graph)
 
@@ -204,7 +223,8 @@ def save_connectivity(Graph):
 def save_degree(Graph):
     """Save the degree of each nodes in a tsv file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView 
     """
     De = {}
     D = topology.degree(Graph)
@@ -228,7 +248,8 @@ def save_degree(Graph):
 def save_diameter(Graph):
     """Save the graph diameter in a JSON file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView 
     """
     Dia = topology.diameter(Graph)
     with open("diameter.json", "w") as file:
@@ -239,7 +260,8 @@ def save_diameter(Graph):
 def save_eccentricity(Graph):
     """Save the eccentricity of each nodes in a JSON file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     Ecc = topology.eccentricity(Graph)
     with open("eccentricity.json", "w") as file:
@@ -250,7 +272,8 @@ def save_eccentricity(Graph):
 def save_betweenness_centrality(Graph):
     """Save the betweenness centrality of each nodes in a tsv file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
     """
     Bc = topology.betweenness_centrality(Graph)
     col = {"Metabolite": [], "Centrality": []}
@@ -267,9 +290,12 @@ def save_betweenness_centrality(Graph):
 def save_seed(Graph, Reaction, Metabo):
     """Save all seeds of the metabolic network in a JSON file
 
-    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph 
-    :param dict Reactions : Dictionary of Reaction object
-    :param dict Metabo : Dictionary of Metabo object 
+    :param Graph: Networkx graph
+    :type Graph: networkx.classes.reportviews.DiDegreeView
+    :param Reactions: Dictionary of Reaction object
+    :type Reactions: dict
+    :param Metabo: Dictionary of Metabo object 
+    :type Metabo: dict 
     """
     S = topology.taagseed(Metabo, Reaction, Graph)
     with open("seeds.json", "w") as file:
