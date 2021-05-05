@@ -86,8 +86,11 @@ parameters: <br>
 description: renvoie les paramètres id, name, compartment, boundaryConditions, hasOnlySubstanceUnit et constant <br>
 return: dictionnaire des paramètres <br>
 
- <strong><em>_init_ (id, name, reversible, reactifs, products, ename → objet ) </em></strong> <br>
-
+<strong><em>_init_ (id, name, reversible, reactifs, products, ename → objet ) </em></strong> <br>
+objet repertoriant tous les paramètres associés aux réactions <br>
+kind : global function <br>
+parameters: identifiant de type str, enzyme de type str, reversible de type boolean, reactifs de type tuples et products de type tuples <br>
+description renvoie les paramètres id, name, enzyme , reversible, reactifs et products <br>
 
 
 <strong><em>create_graphe ()  </em></strong> <br>
