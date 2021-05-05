@@ -68,10 +68,27 @@ return : couple composé des métabolites et des réactions <br>
  <strong><em>init_graph (métabos, Reaction, mode → objet ) </em></strong> <br>
 génère le graphe à partir d'une liste de métabolites et de réactions  <br>
 kind : global function <br>
-return : graph networkx <br>
 parameters : métabos de type objet et Reaction de type objet<br>
 description : liste des objets métabos<br>
 mode : affichage du graphe avec réactions et métabolites <br>
+return : graph networkx <br>
+
+ <strong><em>_init_ (id, name, compartment, boundaryx, hosu, constant → objet ) </em></strong> <br>
+génère tous les paramètres associés aux métabolites <br>
+kind: global function <br>
+parameters: identifiant de type str, name de type str, compartment de type str <br>
+description : objet repertoriant tous les paramètres concernant les métabolites <br>
+
+ <strong><em> properties ( str → dict ) </em></strong> <br>
+génère un dictionnaire contenant tous les paramètres d'un métabolite
+kind: global function <br> 
+parameters: <br>
+description: renvoie les paramètres id, name, compartment, boundaryConditions, hasOnlySubstanceUnit et constant <br>
+return: dictionnaire des paramètres <br>
+
+ <strong><em>_init_ (id, name, reversible, reactifs, products, ename → objet ) </em></strong> <br>
+
+
 
 <strong><em>create_graphe ()  </em></strong> <br>
 built multidigraph object
