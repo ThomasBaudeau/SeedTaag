@@ -2,14 +2,13 @@ import SeedTaag.graph_topology as gt
 import SeedTaag.data_storage as ds
 
 def find_seed(dag,specie):
-    """dind the seed of a dag
+    """Find the seed of a dag
 
-    Args:
-        dag (networkx object): networkx graph must be a directed acyclic graph
-        specie (dict): dictionary of node contained in the graph
+    :param networkx_object dag : Networkx graph must be a directed acyclic graph
+    :param specie dict: Dictionary of node contained in the graph
 
-    Returns:
-        dict: dictionary of seeds
+    :returns: Dictionary of seeds
+    :rtype: dict
     """
     seed = {}
     count = 0
@@ -22,13 +21,12 @@ def find_seed(dag,specie):
     return seed
 
 def find_dag_node(graph):
-    """create dictionary of node with strictly connected component informations
+    """Create dictionary of node with strongly connected components informations
 
-    Args:
-        graph (networkx object): networkx graph must be directed
+    :param networkx_object graph: Networkx graph must be directed
 
-    Returns:
-        [dict]: dictionary of node with strictly connected component informations
+    :returns: Dictionary of node with strongly connected components informations
+    :rtype: dict
     """
     scc=[list(c)
         for c in sorted
@@ -40,15 +38,14 @@ def find_dag_node(graph):
 
 
 def find_dag_edge(Metabo, Reactions, scc_node):
-    """built dictionary of the relation connecting two nodes
+    """Built dictionary of the relation connecting two nodes
 
-    Args:
-        Metabo (dict): dictionary of Metabo object
-        Reactions (dict): dictionary of Reaction object
-        scc_node (dict): dictionary of node
+    :param dict Metabo : Dictionary of Metabo object
+    :param dict Reactions : Dictionary of Reaction object
+    :param dict scc_node : Dictionary of node
 
-    Returns:
-        dict: dictionary of reaction built with the relations between two nodes
+    :returns: Dictionary of reaction built with the relations between two nodes
+    :rtype: dict
     """
     dag_edge={}
     keys = list(scc_node.keys())
@@ -73,15 +70,14 @@ def find_dag_edge(Metabo, Reactions, scc_node):
 
 
 def dag_init(Metabo,Reactions, Graph):
-    """create sbml graph and dict of their related nodes 
+    """Create sbml graph and dict of their related nodes 
 
-    Args:
-        Metabo (dict): dictionary of Metabo object
-        Reactions (dict): dictionary of Reaction object
-        Graph (networkx object): networkx graph must be directed
+    :param dict Metabo : Dictionary of Metabo object
+    :param dict Reactions : Dictionary of Reaction object
+    :param networkx_object Graph : networkx graph must be directed
 
-    Returns:
-        [networkx object,dict]:  graph built with networkx and a dictionary of node with strictly connected component informations
+    :returns: Graph built with networkx and a dictionary of node with strictly connected component informations
+    :rtype: networkx object, dict
     """
     scc_node = find_dag_node(Graph)
     scc_edge = find_dag_edge(Metabo,Reactions, scc_node)

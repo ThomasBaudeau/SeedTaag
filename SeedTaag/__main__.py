@@ -3,19 +3,15 @@ import SeedTaag.data_storage as storage
 import SeedTaag.visualise as v
 import argparse
 
-### GRAPH ###
-
 MESSAGE ="""
-metabolic network topologie and seed detector
+metabolic network topology and seed detector
 """
 
 
 def main():
     """Main fonction for use SeedTaag package with -m SeedTaag
 
-    Raises:
-        ValueError: [Too many argument : incorrect utilisation of the command line]
-        ValueError: [Too many argument : incorrect utilisation of the command line]
+    :Raises ValueError:Too many argument : incorrect usage of the command
     """
     parser = argparse.ArgumentParser('staag',
                                      description='for specific help on each subcommand use:',

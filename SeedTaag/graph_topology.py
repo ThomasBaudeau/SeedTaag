@@ -6,11 +6,10 @@ from igraph import Graph
 def shortest_path(Graph) :
   """ Measure all shortest paths of the graph
 
-  Args:
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph
 
-  Returns:
-      dict = {'A' : {'A' : ['A'], ...} , 'B' : {'A' : ['B', 'A'], ...} , ..}
+    :returns: dict = {'A' : {'A' : ['A'], ...} , 'B' : {'A' : ['B', 'A'], ...} , ..}
+    :rtype: dict
   """
   #G = Graph.from_networkx(G)
   #return Graph.shortest_paths(G) #avec graphe de Igraph
@@ -19,105 +18,96 @@ def shortest_path(Graph) :
 def degree_centrality(Graph) :
   """ Measure the degree centrality of each nodes
 
-  Args:
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph
 
-  Returns:
-      dict = { 'A' : degree_centrality, 'B' : degree_centrality, ...}
+    :returns: dict = { 'A' : degree_centrality, 'B' : degree_centrality, ...}
+    :rtype: dict
   """
   return nx.degree_centrality(Graph)
 
 def betweenness_centrality(Graph) :
-  """ Measure the betweenness centrality of each nodes
+  """Measure the betweenness centrality of each nodes
 
-  Args:
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph
 
-  Returns:
-      dict = { 'A' : betweenness_centrality, 'B' : betweenness_centrality, ...}
+    :returns: dict = { 'A' : betweenness_centrality, 'B' : betweenness_centrality, ...}
+    :rtype: dict
   """
   return nx.betweenness_centrality(Graph)
 
 def all_pairs_nodes_connectivity(Graph) :
-  """ Measure the connectivity of each pairs of nodes
+    """Measure the connectivity of each pairs of nodes
 
-  Args:
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph
 
-  Returns:
-      dict = {'A' : {'B' : connectivity} , 'A' : {'C' : connectivity}, ... }
-  """
-  return nx.all_pairs_node_connectivity(Graph)
+    :returns: dict = {'A' : {'B' : connectivity} , 'A' : {'C' : connectivity}, ... }
+    :rtype: dict
+    """
+    return nx.all_pairs_node_connectivity(Graph)
 
 def degree(Graph) :
-  """ Save the degree of each nodes
+    """Save the degree of each nodes
 
-  Args:
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph
 
-  Returns:
-      <class 'networkx.classes.reportviews.DiDegreeView'>
-  """
-  return nx.degree(Graph)
+    :returns: degree of each nodes
+    :rtype: networkx.classes.reportviews.DiDegreeView
+    """
+    return nx.degree(Graph)
 
 def diameter(G) : # avec graphe Igraph
-  """ Measure the graph diameter
+    """Measure the graph diameter
 
-  Args:
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param networkx.classes.reportviews.DiDegreeView G : Networkx graph
 
-  Returns:
-      int
-  """
-  G = Graph.from_networkx(G)
-  return Graph.diameter(G)
+    :returns: Diameter
+    :rtype: int
+    """
+    G = Graph.from_networkx(G)
+    return Graph.diameter(G)
 
 def eccentricity(G) : # avec graphe Igraph
-  """ Measure the eccentricity of each nodes
+  """Measure the eccentricity of each nodes
 
-  Args:
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param networkx.classes.reportviews.DiDegreeView G : Networkx graph
 
-  Returns:
-      list: [eccentricity_1, eccentricity_2, ...]
+    :returns: [eccentricity_1, eccentricity_2, ...]
+    :rtype: list
   """
   G = Graph.from_networkx(G)
   return Graph.eccentricity(G)
 
 def tarjan(Graph):
-  """find the strongly connected component of the graph with the tarjan algorithm
+  """Find the strongly connected component of the graph with the tarjan algorithm
 
-  Args:
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param networkx.classes.reportviews.DiDegreeView Graph: Networkx graph
 
-  Returns:
-      [set of node]: set of node who each one represent scc
+    :returns: Set of node who each one represent scc
+    :rtype: node_set_networkx
   """
   return nx.strongly_connected_components(Graph)
 
 def ancestors(Graph,node):
-  """find the ancestor of one node
+  """Find the ancestor of one node
 
-  Args:
-       Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
-      node (dict): dictionary of nodes in the graph
+    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph
+    :param dict node : Dictionary of nodes in the graph
 
-  Returns:
-      [set of node]: ancestor of the node
+    :returns: Ancestor of the node
+    :rtype: node_set_networkx
   """
   return nx.algorithms.dag.ancestors(Graph, node)
 
 
 def taagseed(Metabo,Reaction, Graph):
-  """find the seed in the graph
+  """Find the seed in the graph
 
-  Args:
-      Metabo (dict): dictionary of metabo objects
-      Reaction (dict): dictionary of reaction objects
-      Graph (<class 'networkx.classes.reportviews.DiDegreeView'>): Graph
+    :param dict Metabo : Dictionary of metabo objects
+    :param dict Reaction : Dictionary of reaction objects
+    :param networkx.classes.reportviews.DiDegreeView Graph : Networkx graph
 
-  Returns:
-      [dict]: dictionary of seeds 
+    :returns: Dictionary of seeds 
+    :rtype: dict 
   """
   dag, scc_node = tg.dag_init(Metabo,Reaction, Graph)
   seed = tg.find_seed(dag, scc_node)

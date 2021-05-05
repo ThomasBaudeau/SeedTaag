@@ -5,15 +5,12 @@ import libsbml
 def create_sbml(filename):
     """ built libSBML object from a SBML file
 
-    Args:
-        filename (string): name of the sbml file to read
+    :param string filename : name of the sbml file to read
 
-    Raises:
-        ValueError: LibSBML package should have been installed
-        ValueError: doc.printErrors()
+    :returns: object who contains all the information in the file
+    :rtype: lisbml_object
 
-    Returns:
-        lisbml objet: object who contains all the information in the file
+    :raises ValueError: Incorrect sbml file
     """
     reader = libsbml.SBMLReader()
     if reader == None:
@@ -25,13 +22,11 @@ def create_sbml(filename):
     return model
 
 def extract_species(model):
-    """create dictionary of Metabo object from a libsbml object
+    """extract information about species in a libSBML model
 
-    Args:
-        model (libsbml object): object who contains all the information contains in sbml file
-
-    Returns:
-        dict: dictionary containing all the metabolites of the libsbml object as metabolite objects
+    :param string model: libsbml object containing all the information from an sbml file
+    :returns : dictionary containing all the metabolites of the libsbml object as metabolite objects 
+    :rtype : dict 
     """
     DictOfSpecies = {species.id: C.Metabo(species.id, species.name, species.compartment, species.getBoundaryCondition(),
     species.getHasOnlySubstanceUnits(), species.constant) for species in model.getListOfSpecies()}
@@ -41,15 +36,13 @@ def extract_species(model):
 def extract_reactions(model, Metabos):
     """create a reaction object dictionary from a libsml object
 
-    Args:
-        model (libsbml object): object who contains all the information contains in sbml file   
-        Metabos (metabo object dictionary): dictionary containing metabolites as metabolite objects
+    :Args libsbml_object model: libsbml object containing all informations contained in sbml file   
+    :Args dict Metabos: dictionary containing metabolites as metabolite objects
 
-    Raises:
-        ValueError: catch exception if the reactif or product list can't be correctly create
-
-    Returns:
-        dict: dictionary containing all the reaction of the libsbml object as reaction objects
+    :Returns:dictionary containing all the reaction of the libsbml object as reaction objects
+    :rtype:dict 
+    
+    Raises ValueError: catch exception if the reactant or product list can't be correctly create
     """
     DictOfReactions={}
     for reaction in model.getListOfReactions():

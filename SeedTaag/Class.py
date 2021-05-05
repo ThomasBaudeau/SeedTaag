@@ -2,17 +2,16 @@ class Metabo():
     """objet representing metabolites
     """
     def __init__(self, id, name, compartment, boundaryc, hosu, constant):
-    """
-    objet repertoriant tous les paramètres associés aux métabolites 
+        """
+        objet listing all parameters associated to metabolite 
 
-    Args: 
-        id( string): identifiant d'un métabolite 
-        name(string): nom du métabolite
-        compartment (string) : compartiment 
-        boundary
-        hosu 
-        constant
-    """
+        :Args string id: id of a metabolite
+        :Args string name: name of a metabolite
+        :Args string compartment: name of the compartment
+        :Args boolean boundaryc : status of the boundary condition
+        :Args boolean hosu: tell if has only substance unit  
+        :Args boolean constant: tell if it is constant
+        """
         self.id = id
         self.name = name
         self.compartment = compartment
@@ -22,10 +21,10 @@ class Metabo():
 
     def properties(self):
         """
-        donne un dictionnaire contenant tous les paramètres d'un métabolite 
+        gives a dictionary containing all the parameters of a metabolite
         
-        Returns : 
-            dict: dictionnaire des paramètres 
+        :Returns : dictionary of parameters
+        :rtype: dictionary 
         """
         return {'id': self.id, 'name': self.name, 'compartment': self.compartment,
         'boundaryConditions':self.boundaryc,'hasOnlySubtanceUnit':self.hosu,'constant':self.constant}
@@ -33,10 +32,10 @@ class Metabo():
     
     def get_id(self):
         """
-        donne l'identifiant d'un métabolite
+        return metabolite's id 
         
-        Returns : 
-            string: identifiant des métabolites 
+        :Returns : metabolite's id
+        :rtype: string
         """
         
         return self.id
@@ -45,15 +44,14 @@ class Reaction():
   
     def __init__(self, id, name, reversible, reactifs, products,ename):
         """
-        objet repertoriant tous les paramètres associés aux réactions
+        object listing all parameters associated with reactions
 
-    Args: 
-        id( string): identifiant d'un métabolite 
-        name(string): nom du métabolite
-        enzyme (string) : nom de l'enzyme
-        reversible (boolean): indique si la réaction est réversible
-        reactifs (list <tuples>) : liste du couple des identifiants des réactifs et du coefficient stochiométrique 
-        products (list <tuples>) : liste du couple des identifiants des produits et du coefficient stochiométrique 
+        :Args string id: identifier of a metabolite
+        :Args string name: name of the metabolite
+        :Args list enzyme: names of the enzyme
+        :Args boolean reversible: indicates if the reaction is reversible
+        :Args reactants dict: list of the pair of reagents identifiers and the stochiometric coefficient
+        :Args products dict: list of the pair of product identifiers and stochiometric coefficient
         """
         self.id = id
         self.name = name
@@ -64,9 +62,11 @@ class Reaction():
 
     def get_reactifs(self, stoichiometry=False):
         """
-        renvoie la liste des identifiants des réactifs ou si le paramètre stochiométrique est vrai renvoie la liste des tuples (reactifs-coefficients stochiométriques )
-        Args : 
-            stochiometry (boolean): indique si l'on souhaite les coefficients stochiométriques
+        return list of metabolite object or return dict of metabolite with stochiometry
+        :Args boolean stochiometry: default false define return mode with or without stochiometry
+
+        :returns: metabolite object
+        :rtype: list or dict
         """
         if stoichiometry:
             return self.__reactifs
@@ -75,10 +75,11 @@ class Reaction():
 
     def get_products(self, stoichiometry=False):
         """
-        
-        renvoie la liste des identifiants des produits ou si le paramètre stochiométrique est vrai renvoie la liste des tuples (produits-coefficients stochiométriques )
-        Args : 
-            stochiometry (boolean): indique si l'on souhaite les coefficients stochiométriques
+        return list of metabolite object or return dict of metabolite with stochiometry
+        :Args boolean stochiometry: default false define return mode with or without stochiometry
+
+        :returns: metabolite object
+        :rtype: list or dict
         """
         if stoichiometry:
             return self.__products
@@ -86,29 +87,29 @@ class Reaction():
 
     def properties(self):
         """
+        return dictionary containing all parameters of reaction
         
-        donne un dictionnaire contenant tous les paramètres d'une réaction
-        
-        Returns : 
-            dict: dictionnaire des paramètres 
+        :returns: dictionary of parameters
+        :rtype: dict 
         """
         return {'id': self.id, 'name': self.name, 'reversible': self.reversible,
                 'reactifs': self.get_reactifs(), 'products': self.get_products(),'enzymes':self.get_enzyme_name()}
 
     def get_reversible(self):
         """
-       donne la réversibilité d'une réaction
+        return the reversibility of reaction
         
-        Returns : 
-            boolean:  indique si la réaction est réversible 
+        :Returns: state of the reversibility
+        :rtype: boolean
         """
         return self.reversible
 
     def equation(self):
         """
-        à partir d'une réaction renvoie l'équation chimique de la réaction 
-        Return : 
-            string (équation)
+        return the stochiometric equation of reaction
+
+        :Return: equation
+        :rtype:string 
         """
         text = str(self.name)+" : "
         for reactif, stoich in self.__reactifs:
@@ -120,17 +121,18 @@ class Reaction():
 
     def get_enzyme_name(self):
         """
-         donne le nom d'une enzyme
+         return enzyme name
         
-        Returns : 
-            string: le nom de l'enzyme 
-        
+        :Returns: enzyme name
+        :rtype:string 
         """
-      return self.enzymes
+        return self.enzymes
 
     def add_enzyme(self,enzyme):
         """
-        rajoute l'enzyme à la liste des enzymes 
+        add the enzyme to the list enzyme 
+
+        :Args string enzyme:name of the enzyme responsible of the reaction
         """
         self.enzymes.apppend(enzyme)
 
@@ -138,12 +140,11 @@ class Reaction():
     def isinreaction(self,a,b):
         """find the link between two metabolites
 
-        Args:
-            a (string): metabolite's id
-            b (string): metabolite's id
+        :Args string a: metabolite's id
+        :Args string b: metabolite's id
 
-        Returns:
-            Boolean: True if a is the source of the reaction False if its the opposite and None if one of the elements is not in the reaction
+        :Returns:True if a is the source of the reaction, False if it's the opposite and None if one of the elements is not in the reaction
+        :rtype: Boolean 
         """
         reactifs = self.get_reactifs()
         products = self.get_products()

@@ -10,14 +10,13 @@ import SeedTaag.Taagseed as tag
 
 
 def defelements(Metabos, Reactions):
-    """built a list of data from dictionary object of type Metabo and Reaction
+    """Built a list of data from dictionary object of type Metabo and Reaction
 
-    Args:
-        Metabos (dict): dictionary of Metabo object
-        Reactions (dict): dictionary of Reaction object
+    :param dict Metabos : Dictionary of Metabo object
+    :param dict Reactions : Dictionary of Reaction object
 
-    Returns:
-        list: list of all the informations extracts from the object
+    :returns: List of all the informations extracts from the object
+    :rtype: list
     """
     elements = []
     for key in Metabos:
@@ -41,15 +40,14 @@ def defelements(Metabos, Reactions):
 
 
 def defcsc(Metabos, Reactions, S):
-    """built a list of data for create Dash graph with apparent strongly connected component
+    """Built a list of data for create Dash graph with apparent strongly connected component
 
-    Args:
-        Metabos (dict): dictionary of Metabo object
-        Reactions (dict): dictionary of Reaction object
-        S (dict): dictionary of strongly connected component
+    :param dict Metabos : Dictionary of Metabo object
+    :param dict Reactions : Dictionary of Reaction object
+    :param dict S : Dictionary of strongly connected component
 
-    Returns:
-        list: list of all the informations for built Dash graph with apparent strongly connected component
+    :returns: List of all the informations for built Dash graph with apparent strongly connected component
+    :rtype: list
     """
     elements = []
     count = 0
@@ -78,14 +76,13 @@ def defcsc(Metabos, Reactions, S):
 
 
 def defdag(node, edge):
-    """built a list of data for create Dash graph with strongly connected component as node
+    """Built a list of data for create Dash graph with strongly connected component as node
 
-    Args:
-        node (dict): dictionary of strongly connected component
-        edge ([type]): dictionary of strongly connected component link
+    :param dict node: Dictionary of strongly connected component
+    :param dict edge: Dictionary of strongly connected component link
 
-    Returns:
-        [list]: list of all the informations for built Dash graph with strongly connected component as nodes
+    :returns: List of all the informations for built Dash graph with strongly connected component as nodes
+    :rtype: list
     """
     elements = []
     count = 0
@@ -101,12 +98,11 @@ def defdag(node, edge):
 
 
 def visualise(Metabo, react, graph):
-    """start web serveur for visualise graph of a metabolite network
+    """Start web serveur for visualise graph of a metabolite network
 
-    Args:
-        Metabos (dict): dictionary of Metabo object
-        Reactions (dict): dictionary of Reaction object
-        graph (networkx object): networkx graph
+    :param dict Metabos: Dictionary of Metabo object
+    :param dict Reactions: Dictionary of Reaction object
+    :param networkx_object graph : Networkx graph
     """
     default_stylesheet = [
         {
@@ -190,13 +186,12 @@ def visualise(Metabo, react, graph):
     @app.callback(Output('cytoscape-responsive', 'elements'),
                   Input('dropdown-update-elements', 'value'))
     def update_layout(value):
-        """uptdate the graph between three type of visualisation
+        """Uptdate the graph between three types of visualisation
 
-        Args:
-            value (str): name of the selected graph
+        :param str value: Name of the selected graph
 
-        Returns:
-            list: list of the graph representation
+        :returns: List of the graph representation
+        :rtype: list
         """
         print(value)
         if value == 'simple_graph' or value == 'grid':
