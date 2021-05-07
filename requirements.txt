@@ -4,4 +4,3 @@ pandas==1.2.4
 dash==1.20.0
 dash-cytoscape==0.2.0
 python-igraph==0.9.1
-requests==2.22.0
