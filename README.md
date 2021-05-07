@@ -1,3 +1,4 @@
+
 *<h2>Install </h2>*
 
 **Installation**
@@ -257,7 +258,7 @@ Measure the degree centrality of each nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	calculate degree for each node | 
 
 return a dict
  <br>
@@ -267,7 +268,7 @@ Measure the betweenness centrality of each nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph| calculate the betweenness centrality degree for each node | 
 
 return a dict
  <br>
@@ -277,7 +278,7 @@ Measure the connectivity of each pairs of nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	measure the connectivity of pair of nodes | 
 
 return a dict
  <br>
@@ -287,7 +288,7 @@ Save the degree of each nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	measure the degree of each nodes | 
 
 return a dict
  <br>
@@ -297,7 +298,7 @@ Measure the graph diameter <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	measure the full graph diameter | 
 
 return a dict
  <br>
@@ -307,7 +308,7 @@ Measure the eccentricity of each nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	calculate the eccentricity of each nodes | 
 
 return a dict
  <br>
@@ -318,7 +319,7 @@ Find the strongly connected component of the graph with the tarjan algorithm <br
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	identify the SCC of the graph using the tarjan algorithm | 
 
 return a dict
  <br>
@@ -331,7 +332,7 @@ kind: global function <br>
 |----------|----------|------ |
 |Metabo| dict|	Dictionary of metabo objects | 
 |Reaction| dict|	Dictionary of reaction objects | 
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	identify the seeds of the meatabolic network | 
 
 return Dictionary of seeds 
  <br>
@@ -341,7 +342,7 @@ Find the ancestor of one node <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 |
+|Graph| Networkx graph|	identify the ancestor of a node |
 |node| dict| Dictionary of nodes in the graph	 | 
 
 return a dict
@@ -354,7 +355,7 @@ kind: global function <br>
 |----------|----------|------ |
 |Metabo| dict|	Dictionary of metabo objects | 
 |Reactions| dict|	Dictionary of Reaction object | 
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	display all the topology results in the command line | 
 
  <br>
  
@@ -363,7 +364,7 @@ Display all shortest paths of the graph on the terminal <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph| 	display the results of shortest pathin the command line | 
 
  <br>
  
@@ -372,7 +373,7 @@ Display the degree centrality of each nodes on the terminal <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		display the results of centrality degree in the command line | 
 
  <br>
  
@@ -381,7 +382,7 @@ Display the betweenness centrality of each nodes on the terminal <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		display the results of betweenness centrality in the command line | 
 
  <br>
  
@@ -390,7 +391,7 @@ Display the connectivity of each pairs of nodes on the ter <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		display the results of connectivity in the command line | 
 
  <br>
  
@@ -399,7 +400,7 @@ Display the degree of each nodes on the terminal <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	 display the results of degree in the command line |  
 
  <br>
  
@@ -408,7 +409,7 @@ Display the graph diameter on the terminal <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		display the result of graph diameter in the command line | 
 
  <br>
  
@@ -417,7 +418,7 @@ Display the eccentricity of each nodes on the terminal <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		display the results of eccentricity in the command line | 
 
  <br>
  
@@ -427,7 +428,7 @@ Display all seeds of the metabolic network on the terminal <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		display the results of seeds in the command line | 
 |Reactions| dict|Dictionary of Reaction object	 | 
 |Metabo|dict|Dictionary of Metabo object	 | 
 
@@ -439,7 +440,7 @@ Save all topology results of the graph in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	save all the topology results in a JSON file | 
 |Reactions| dict|Dictionary of Reaction object	 | 
 |Metabo|dict|Dictionary of Metabo object	 | 
 
@@ -450,7 +451,7 @@ Save all shortest paths of the graph in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		save the shortest path results in a JSON file | 
 
 <br>
  
@@ -459,7 +460,7 @@ Save the degree centrality of each nodes in a tsv file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		save the degree centrality results in a tsv file | 
 
 <br>
 
@@ -468,7 +469,7 @@ Save the connectivity of each pairs of nodes in a tsv file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|		save the connectivity results in a tsv file | 
 
 <br>
 
@@ -477,7 +478,7 @@ Save the degree of each nodes in a tsv file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	save the degree results in a tsv file | 
 
 <br>
 
@@ -487,7 +488,7 @@ Save the graph diameter in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	save the graph diameter result in a JSON file | 
 
 <br>
  
@@ -496,7 +497,7 @@ Save the eccentricity of each nodes in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	save the eccentricity results in a JSON file | 
 
 <br>
 
@@ -505,7 +506,7 @@ Save the betweenness centrality of each nodes in a tsv file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	save the betweenness centrality results in a tsv file | 
 
 <br>
 
@@ -515,7 +516,7 @@ Save all seeds of the metabolic network in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	save the seeds results in a JSON file | 
 |Reactions| dict | Dictionary of Reaction object	 | 
 |Metabo| dict| Dictionary of Metabo object 	 | 
 
