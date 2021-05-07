@@ -318,7 +318,7 @@ Find the strongly connected component of the graph with the tarjan algorithm <br
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	use  | 
 
 return a dict
  <br>
