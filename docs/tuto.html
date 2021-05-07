@@ -88,8 +88,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#command-line-usage">command Line Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-usage">basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-usage">Command Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing</a></li>
@@ -165,24 +165,26 @@
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>For instalation see <a class="reference internal" href="install.html"><span class="doc">Installing</span></a> documentation.</p>
 <div class="section" id="command-line-usage">
-<h2>command Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Command Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
 <p>Three type of command are available:</p>
 <ul class="simple">
 <li><p>-i or --input</p></li>
 <li><p>-d or --display (optional)</p></li>
 <li><p>--select --all // --save_all --save</p></li>
 </ul>
-<p>Command select and save have optionals arguments:
-* sp for the shortest past of all node
-* dc for degree centrality
-* cn for all pairs nodes connectivity
-* d for degre
-* s for seed calculation
-* dm for diameter
-* bc for the betweenness centrality</p>
+<p>Command select and save have optionals arguments:</p>
+<ul class="simple">
+<li><p><cite>sp</cite> for the shortest past of all node</p></li>
+<li><p><cite>dc</cite> for degree centrality</p></li>
+<li><p><cite>cn</cite> for all pairs nodes connectivity</p></li>
+<li><p><cite>d</cite> for degre</p></li>
+<li><p><cite>s</cite> for seed calculation</p></li>
+<li><p><cite>dm</cite> for diameter</p></li>
+<li><p><cite>bc</cite> for the betweenness centrality</p></li>
+</ul>
 </div>
 <div class="section" id="basic-usage">
-<h2>basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>display the graph on a webpage and save all the topology result:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">SeedTaag</span> <span class="o">-</span><span class="n">i</span> <span class="p">[</span><span class="n">sbmlfilename</span><span class="p">]</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">save_all</span>
 </pre></div>
