@@ -82,7 +82,7 @@ kind : global function <br>
 
 | Param | Type | Description |
 |----------|----------|------ |
-|  Metabos |dict	 |list of Métabos objects|
+|  Metabos |dict	 |list of Metabos objects|
 |Reactions	| dict	|	list of Reactions objects |
 |dag| boolean	|	Select function mode |
 <br>
@@ -153,7 +153,7 @@ kind: global function <br>
 
 | Param | Type | Description |
 |----------|----------|------ |
-|stochiometry	| boolean|	define return mode with or without stochiometry, defaults to `False`| 
+|stochiometry	| boolean|	default false define return mode with or without stochiometry | 
 <br>
 return: metabolite object 
 <br>
@@ -178,19 +178,17 @@ kind: global function <br>
  *<h2><strong> <em> equation(self) </em></strong> <br> </h2>*
 return the stochiometric equation of reaction <br>
 kind: global function <br> 
-| Param | Type | Description |
-|----------|----------|------ |
-|equation| string|	return the stochiometric equation | 
- <br>
+<br> 
+return : equation string
+<br>
 
 *<h2><strong> <em> get_enzyme_name(self) </em></strong> <br> </h2>*
 return enzyme name <br>
 kind: global function <br> 
-| Param | Type | Description |
-|----------|----------|------ |
-|enzyme name| string|	return the enzyme name | 
- <br>
- 
+<br> 
+return : enzyme name string
+<br>
+
  
  *<h2><strong> <em> add_enzyme(self,enzyme) </em></strong> <br> </h2>*
 add the enzyme to the list enzyme  <br>
@@ -205,9 +203,10 @@ find the link between two metabolites <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|isinreaction|boolean| return True if a is the source of the reaction, `False` if it's the opposite and `None` if one of the elements is not in the reaction|
 |a| string|metabolite's id | 
 |b| string|metabolite's id | 
+ <br>
+return : `True` if a is the source of the reaction, `False` if it's the opposite and `None` if one of the elements is not in the reaction
  <br>
  
   *<h2><strong> <em> extract_species(Metabos) </em></strong> <br> </h2>*
@@ -215,8 +214,8 @@ Built and fill networkx graph with metabolite  <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Metabos| dict|	extract species from Metabos | 
-
+|Metabos| dict|	dictionary of Metabo object |
+<br>
 return a graph built with networkx
  <br>
  
@@ -226,9 +225,10 @@ Edits networkx graph with reactions  <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Reactions| dict|	extract reactions from Reactions| 
+|Reactions| dict|	dictionary of Reactions object| 
 | G |  networkx_object|	graph built with networkx reactions are edges | 
-
+<br>
+return a graph built with networkx
  <br>
   
  *<h2><strong> <em> dag_init(node,edge) </em></strong> <br> </h2>*
@@ -238,7 +238,7 @@ kind: global function <br>
 |----------|----------|------ |
 |node| dict|	dictionary containing all the information about the nodes to build the graph| 
 |edge |dict |	dictionary containing all the information about the edge to build the graph | 
-
+<br>
 return a networkx graph
  <br>
  
@@ -247,8 +247,8 @@ Measure all shortest paths of the graph <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	gives the shortest paths | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+<br>
 return a dict
  <br>
  
@@ -257,8 +257,8 @@ Measure the degree centrality of each nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	give the degree centrality | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+ <br>
 return a dict
  <br>
  
@@ -267,8 +267,8 @@ Measure the betweenness centrality of each nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	give the betweeness centrality | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+ <br>
 return a dict
  <br>
  
@@ -277,8 +277,8 @@ Measure the connectivity of each pairs of nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	give the connectivity of each pairs of nodes  | 
-
+|Graph| Networkx graph|	graph created by Networkx  | 
+ <br>
 return a dict
  <br>
  
@@ -287,8 +287,8 @@ Save the degree of each nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	degree of each nodes | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+<br>
 return a dict
  <br>
  
@@ -297,8 +297,8 @@ Measure the graph diameter <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph| graph diameter | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+<br>
 return a dict
  <br>
  
@@ -307,8 +307,8 @@ Measure the eccentricity of each nodes <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	eccentricity of nodes | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+<br>
 return a dict
  <br>
  
@@ -318,8 +318,8 @@ Find the strongly connected component of the graph with the tarjan algorithm <br
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	give the SCC with the algorithm named Tarjan | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+<br>
 return a dict
  <br>
  
@@ -331,8 +331,8 @@ kind: global function <br>
 |----------|----------|------ |
 |Metabo| dict|	Dictionary of metabo objects | 
 |Reaction| dict|	Dictionary of reaction objects | 
-|Graph| Networkx graph|	graph diameter | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+<br>
 return Dictionary of seeds 
  <br>
  
@@ -341,10 +341,10 @@ Find the ancestor of one node <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 |
+|Graph| Networkx graph|		graph created by Networkx |
 |node| dict| Dictionary of nodes in the graph	 | 
-
-return a dict
+<br>
+return a node set Networkx
  <br>
  
    *<h2><strong> <em> display_all(Graph, Reactions, Metabo) </em></strong> <br> </h2>*
@@ -354,7 +354,7 @@ kind: global function <br>
 |----------|----------|------ |
 |Metabo| dict|	Dictionary of metabo objects | 
 |Reactions| dict|	Dictionary of Reaction object | 
-|Graph| Networkx graph|	Display all topology results of the graph on the terminal | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
  <br>
  
@@ -362,7 +362,7 @@ kind: global function <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	Display all shortest paths of the graph on the terminal | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
  <br>
  
@@ -370,7 +370,7 @@ kind: global function <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	Display the degree centrality of each nodes on the terminal | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
  <br>
  
@@ -378,7 +378,7 @@ kind: global function <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	Display the betweenness centrality of each nodes on the terminal| 
+|Graph| Networkx graph|	graph created by Networkx | 
 
  <br>
  
@@ -386,7 +386,7 @@ kind: global function <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	Display the connectivity of each pairs of nodes on the ter | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
  <br>
  
@@ -394,7 +394,7 @@ kind: global function <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	Display the degree of each nodes on the terminal | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
  <br>
  
@@ -402,7 +402,7 @@ kind: global function <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	Display the graph diameter on the terminal | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
  <br>
  
@@ -410,7 +410,7 @@ kind: global function <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	Display the eccentricity of each nodes on the terminal | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
  <br>
  
@@ -420,7 +420,7 @@ Display all seeds of the metabolic network on the terminal <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 |Reactions| dict|Dictionary of Reaction object	 | 
 |Metabo|dict|Dictionary of Metabo object	 | 
 
@@ -432,7 +432,7 @@ Save all topology results of the graph in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 |Reactions| dict|Dictionary of Reaction object	 | 
 |Metabo|dict|Dictionary of Metabo object	 | 
 
@@ -443,7 +443,7 @@ Save all shortest paths of the graph in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
 <br>
  
@@ -452,7 +452,7 @@ Save the degree centrality of each nodes in a tsv file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
 <br>
 
@@ -461,7 +461,7 @@ Save the connectivity of each pairs of nodes in a tsv file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
 <br>
 
@@ -470,7 +470,7 @@ Save the degree of each nodes in a tsv file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
 <br>
 
@@ -480,7 +480,7 @@ Save the graph diameter in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
 <br>
  
@@ -489,7 +489,7 @@ Save the eccentricity of each nodes in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
 <br>
 
@@ -498,7 +498,7 @@ Save the betweenness centrality of each nodes in a tsv file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 
 <br>
 
@@ -508,7 +508,7 @@ Save all seeds of the metabolic network in a JSON file <br>
 kind: global function <br> 
 | Param | Type | Description |
 |----------|----------|------ |
-|Graph| Networkx graph|	 | 
+|Graph| Networkx graph|	graph created by Networkx | 
 |Reactions| dict | Dictionary of Reaction object	 | 
 |Metabo| dict| Dictionary of Metabo object 	 | 
 
@@ -521,7 +521,7 @@ kind: global function <br>
 |----------|----------|------ |
 |Reactions| dict | Dictionary of Reaction object	 | 
 |Metabo| dict| Dictionary of Metabo object 	 | 
-
+<br>
 return a list of all the informations extracts from the object
 
 <br>
@@ -534,7 +534,7 @@ kind: global function <br>
 |Reactions| dict | Dictionary of Reaction object	 | 
 |Metabo| dict| Dictionary of Metabo object 	 | 
 |S| dict| Dictionary of strongly connected component	 | 
-
+<br>
 return a list of all the informations for built Dash graph with apparent strongly connected component
 <br>
 
@@ -546,7 +546,7 @@ kind: global function <br>
 |----------|----------|------ |
 |node| dict |Dictionary of strongly connected component| 
 |edge| dict| Dictionary of strongly connected component link | 
-
+<br>
 return a list of all the informations for built Dash graph with strongly connected component as nodes
 <br>
 
@@ -557,8 +557,8 @@ kind: global function <br>
 |----------|----------|------ |
 |Metabos| dict |Dictionary of Metabo object| 
 |Reactions | dict| Dictionary of Reaction object | 
-|Graph| Networkx graph|	 | 
-
+|Graph| Networkx graph|	graph created by Networkx | 
+<br>
 return a list of all the informations for built Dash graph with strongly connected component as nodes
 <br>
 
@@ -568,6 +568,6 @@ kind: global function <br>
 | Param | Type | Description |
 |----------|----------|------ |
 |Value | string |Name of the selected graph| 
-
+<br>
 return a list of the graph representation
 <br>
