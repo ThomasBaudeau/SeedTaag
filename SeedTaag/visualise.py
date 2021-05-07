@@ -4,7 +4,6 @@ import dash_html_components as html
 import dash_cytoscape as cyto
 from dash.dependencies import Input, Output, State
 import plotly.express as px
-import requests
 import SeedTaag.Class as C
 import SeedTaag.Taagseed as tag
 
