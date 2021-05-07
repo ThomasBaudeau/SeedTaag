@@ -12,9 +12,9 @@ setup(
 
     author='TAAG',
 
-    description="A faire",
+    description="SeedTaag is a package for visualizing and performing topological measurements on metabolic networks",
 
-    long_description="A faire",
+    long_description="SeedTaag is a package for visualizing and performing topological measurements on metabolic networks",
 
     url='https://github.com/TeamProjetM1/SeedTaag',
 
