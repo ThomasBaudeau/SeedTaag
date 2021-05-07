@@ -29,7 +29,7 @@ Other packages needed to run SeedTaag
 * python-libsbml 5.19.0+ (https://pypi.org/project/python-libsbml/)
 * pandas 1.2.4+ (https://pandas.pydata.org/)
 * dash 1.20.0+ (https://dash.plotly.com/installation)
-* dash-cytoscape 0.2.0+ ()
+* dash-cytoscape 0.2.0+
 * python-igraph 0.9.1+ (https://igraph.org/python/)
 
 Supported web browser

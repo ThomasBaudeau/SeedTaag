@@ -1,4 +1,4 @@
-module Taagseed
+Taagseed module 
 ==================   
 .. automodule:: SeedTaag.Taagseed   
    :members:

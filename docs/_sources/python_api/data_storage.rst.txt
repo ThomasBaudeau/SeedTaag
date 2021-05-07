@@ -1,4 +1,4 @@
-module data_storage
+data_storage module 
 =====================   
 .. automodule:: SeedTaag.data_storage   
    :members:

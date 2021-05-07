@@ -1,4 +1,4 @@
-module visualise
+visualise module 
 ===================   
 .. automodule:: SeedTaag.visualise   
    :members:

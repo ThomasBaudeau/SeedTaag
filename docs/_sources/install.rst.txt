@@ -6,8 +6,8 @@ Installing From Github
 
 Clone the repository::
 
-   git clone https://github.com/flozz/rivalcfg.git
-   cd rivalcfg
+   git clone https://github.com/ThomasBaudeau/SeedTaag
+   cd SeedTaag
 
 Install SeedTaag::
 

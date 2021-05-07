@@ -1,4 +1,4 @@
-module graph_topology
+graph_topology module 
 ========================  
 .. automodule:: SeedTaag.graph_topology  
    :members:

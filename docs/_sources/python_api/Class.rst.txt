@@ -1,5 +1,5 @@
-Metabo & Reaction class
-========================
+Metabo & Reaction classes
+==========================
 .. automodule:: SeedTaag.Class
     :members:
     :undoc-members:

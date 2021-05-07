@@ -1,4 +1,4 @@
-module data_extraction
+data_extraction module
 =====================================  
 .. automodule:: SeedTaag.data_extraction  
    :members:

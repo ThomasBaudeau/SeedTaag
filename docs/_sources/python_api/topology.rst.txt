@@ -1,4 +1,4 @@
-module topology_results  
+topology_results module 
 ========================  
 .. automodule:: SeedTaag.topology_results   
    :members:

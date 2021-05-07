@@ -3,7 +3,7 @@ Getting Started
 
 For instalation see :doc:`install` documentation.
 
-command Line Usage
+Command Line Usage
 ~~~~~~~~~~~~~~~~~~~~~
 
 Three type of command are available:
@@ -13,15 +13,16 @@ Three type of command are available:
 * --select --all // --save_all --save
 
 Command select and save have optionals arguments:
-* sp for the shortest past of all node
-* dc for degree centrality
-* cn for all pairs nodes connectivity
-* d for degre
-* s for seed calculation
-* dm for diameter 
-* bc for the betweenness centrality 
 
-basic usage
+* `sp` for the shortest past of all node
+* `dc` for degree centrality
+* `cn` for all pairs nodes connectivity
+* `d` for degre
+* `s` for seed calculation
+* `dm` for diameter 
+* `bc` for the betweenness centrality 
+
+Basic usage
 ~~~~~~~~~~~~
 
 display the graph on a webpage and save all the topology result::
