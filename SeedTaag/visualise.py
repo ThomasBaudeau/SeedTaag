@@ -43,11 +43,11 @@ def defelements(Metabos, Reactions):
 def defcsc(Metabos, Reactions, S):
     """Built a list of data for create Dash graph with apparent strongly connected component
 
-    :param Metabos : Dictionary of Metabo object
+    :param Metabos: Dictionary of Metabo object
     :type Metabos: dict
-    :param Reactions : Dictionary of Reaction object
+    :param Reactions: Dictionary of Reaction object
     :type Reactions: dict
-    :param S : Dictionary of strongly connected component
+    :param S: Dictionary of strongly connected component
     :type S: dict 
     :returns: List of all the informations for built Dash graph with apparent strongly connected component
     :rtype: list
@@ -109,7 +109,7 @@ def visualise(Metabo, react, graph):
     :param Reactions: Dictionary of Reaction object
     :type Reactions: dict
     :param graph: Networkx graph
-    :type graph:networkx_object
+    :type graph: networkx_object
     """
     default_stylesheet = [
         {

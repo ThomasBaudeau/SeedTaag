@@ -4,8 +4,8 @@ import SeedTaag.data_storage as ds
 def find_seed(dag,specie):
     """Find the seed of a dag
 
-    :param networkx_object dag : Networkx graph must be a directed acyclic graph
-    :type dag:
+    :param dag: Networkx graph must be a directed acyclic graph
+    :type dag: networkx_object
     :param specie: Dictionary of node contained in the graph
     :type specie: dict
     :returns: Dictionary of seeds
@@ -78,7 +78,7 @@ def dag_init(Metabo,Reactions, Graph):
     :param Metabo: Dictionary of Metabo object
     :type Metabo: dict
     :param Reactions: Dictionary of Reaction object
-    :type Reaction: dict
+    :type Reactions: dict
     :param Graph: networkx graph must be directed
     :type Graph: networkx_object
     :returns: Graph built with networkx and a dictionary of node with strictly connected component informations

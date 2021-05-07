@@ -55,7 +55,7 @@ def degree(Graph) :
   """
   return nx.degree(Graph)
 
-def diameter(Graph) : # avec graphe Igraph
+def diameter(G) : # avec graphe Igraph
   """Measure the graph diameter
 
   :param Graph: Networkx graph
@@ -63,10 +63,10 @@ def diameter(Graph) : # avec graphe Igraph
   :returns: Diameter
   :rtype: int
   """
-  G = Graph.from_networkx(Graph)
+  G = Graph.from_networkx(G)
   return Graph.diameter(G)
 
-def eccentricity(Graph) : # avec graphe Igraph
+def eccentricity(G) : # avec graphe Igraph
   """Measure the eccentricity of each nodes
 
   :param Graph: Networkx graph
@@ -74,7 +74,7 @@ def eccentricity(Graph) : # avec graphe Igraph
   :returns: [eccentricity_1, eccentricity_2, ...]
   :rtype: list
   """
-  G = Graph.from_networkx(Graph)
+  G = Graph.from_networkx(G)
   return Graph.eccentricity(G)
 
 def tarjan(Graph):

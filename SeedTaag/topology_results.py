@@ -202,7 +202,7 @@ def save_connectivity(Graph):
     :param Graph: Networkx graph
     :type Graph: networkx.classes.reportviews.DiDegreeView
     """
-    C = topology.all_pairs_node_connectivity(Graph)
+    C = topology.all_pairs_nodes_connectivity(Graph)
 
     # TSV :
     col = {"un": [], "deux": [], "connectivity": []}

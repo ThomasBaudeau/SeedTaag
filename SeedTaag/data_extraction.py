@@ -5,11 +5,10 @@ import libsbml
 def create_sbml(filename):
     """ built libSBML object from a SBML file
 
-    :param filename : name of the sbml file to read
+    :param filename: name of the sbml file to read
     :type filename: string 
     :returns: object who contains all the information in the file
     :rtype: lisbml_object
-
     :raises ValueError: Incorrect sbml file
     """
     reader = libsbml.SBMLReader()
@@ -27,7 +26,7 @@ def extract_species(model):
     :param model: libsbml object containing all the information from an sbml file
     :type model: string 
     :returns: dictionary containing all the metabolites of the libsbml object as metabolite objects 
-    :rtype : dict 
+    :rtype: dict 
     """
     DictOfSpecies = {species.id: C.Metabo(species.id, species.name, species.compartment, species.getBoundaryCondition(),
     species.getHasOnlySubstanceUnits(), species.constant) for species in model.getListOfSpecies()}
@@ -39,10 +38,10 @@ def extract_reactions(model, Metabos):
 
     :param model: libsbml object containing all informations contained in sbml file
     :type model: libsbml_object
-    :param dict Metabos: dictionary containing metabolites as metabolite objects
-    :type Metabo: Metabos_object
-    :returns:dictionary containing all the reaction of the libsbml object as reaction objects
-    :rtype:dict 
+    :param Metabos: dictionary containing metabolites as metabolite objects
+    :type Metabos: Metabos_object
+    :returns: dictionary containing all the reaction of the libsbml object as reaction objects
+    :rtype: dict 
     :raises ValueError: catch exception if the reactant or product list can't be correctly create
     """
     DictOfReactions={}

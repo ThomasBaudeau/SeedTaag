@@ -35,7 +35,7 @@ def main():
     exgroup.add_argument('--select',
                          action='store',
                          nargs='+',
-                         choices=['sp', 'c', 'cn', 'd', 's', '-f', '-g'],
+                         choices=['sp', 'dc', 'cn', 'd', 's', 'dm', 'bc'],
                          help='save selected topology result:\n     sp=shortest path;\n     dc=degree centrality;\n     cn=connectivity;\n     d=degree;\n     s=seed;\n     dm=diameter;\n     bc=betweeness centrality\n ')
 
     exgroup.add_argument('--save_all',
@@ -63,7 +63,7 @@ def main():
                 topology.display_shortest_path(G)
                 print("\n")
             if 'dc' in rep:
-                topology.display_centrality(G)
+                topology.display_degree_centrality(G)
                 print("\n")
             if 'cn' in rep:
                 topology.display_connectivity(G)
@@ -78,7 +78,7 @@ def main():
                 topology.display_diameter(G)
                 print("\n")
             if 'bc' in rep:
-                topology.display_degree_centrality(G)
+                topology.display_betweenness_centrality(G)
                 print("\n")
          
     if (args.save):
@@ -89,8 +89,8 @@ def main():
             if 'sp' in rep:
                 topology.save_shortest_path(G)
                 print("\n")
-            if 'c' in rep:
-                topology.save_centrality(G)
+            if 'dc' in rep:
+                topology.save_degree_centrality(G)
                 print("\n")
             if 'cn' in rep:
                 topology.save_connectivity(G)
@@ -105,7 +105,7 @@ def main():
                 topology.save_diameter(G)
                 print("\n")
             if 'bc' in rep:
-                topology.save_degree_centrality(G)
+                topology.save_betweenness_centrality(G)
                 print("\n")
     if (args.display):
         v.visualise(S,R,G)

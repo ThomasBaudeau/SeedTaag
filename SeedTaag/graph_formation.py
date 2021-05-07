@@ -8,7 +8,7 @@ def extract_species(Metabos):
     :param Metabos: Dictionary of Metabo object
     :type Metabos: dict 
     :returns: graph built with networkx
-    :rtype:networkx_object
+    :rtype: networkx_object
     """                                                         
     G = nx.DiGraph()
     for key in Metabos:
@@ -21,7 +21,7 @@ def extract_species(Metabos):
 def extract_reactions(Reactions, G):
     """Edits networkx graph with reactions
 
-    :param Metabos:dictionary of reaction object
+    :param Metabos: dictionary of reaction object
     :param G: networkx graph
     :type Metabos: dict
     :type G: networkx_object
@@ -47,8 +47,8 @@ def dag_init(node,edge):
     :param edge: dictionary containing all the information about the edge to build the graph
     :type node: dict
     :type edge: dict 
-    :Returns:networkx graph (dag)
-    :rtype:networkx_object
+    :Returns: networkx graph (dag)
+    :rtype: networkx_object
     """
     dag = nx.DiGraph()
     for key in node:

@@ -6,12 +6,12 @@ class Metabo():
         :param name: name of a metabolite.
         :type name: string
         :param compartment: name of the compartment
-        :type compartment:string
-        :param boundaryc : status of the boundary condition
+        :type compartment: string
+        :param boundaryc: status of the boundary condition
         :type boundaryc: boolean
-        :param  hosu: tell if has only substance unit
-        :type hosu:  boolean 
-        :param  constant: tell if it is constant
+        :param hosu: tell if has only substance unit
+        :type hosu: boolean 
+        :param constant: tell if it is constant
         :type constant: boolean
     """
 
@@ -116,7 +116,7 @@ class Reaction():
         """return the stochiometric equation of reaction
 
         :return: equation
-        :rtype:string 
+        :rtype: string 
         """
         text = str(self.name)+" : "
         for reactif, stoich in self.__reactifs:
@@ -130,7 +130,7 @@ class Reaction():
         """return enzyme name
         
         :returns: enzyme name
-        :rtype:string 
+        :rtype: string 
         """
         return self.enzymes
 
